@@ -2,7 +2,13 @@ nav img {
   width: 40px;
   vertical-align: middle; }
 
+nav {
+  height: 70px; }
+
 .container {
   width: 80%; }
+
+.flow-text {
+  text-align: center; }
 
 /*# sourceMappingURL=custom.css.map */
