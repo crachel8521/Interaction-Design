@@ -1,0 +1,23 @@
+#div1{
+	color:Brown;
+	height: 30px;
+	font-family:Georgia;
+}
+label
+{
+  clear: left;
+  text-align: right;
+  padding-right:10px;
+	width:100px;
+	color:Brown;
+}
+input, label {
+    text-align: justify;
+	display: inline-block;
+
+}
+#submit
+{
+	position: absolute;
+	left:110px;
+}
