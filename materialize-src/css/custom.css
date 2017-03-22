@@ -16,8 +16,7 @@ body {
 main {
   flex: 1 0 auto; }
 
-.chatImage {
-  width: 100%;
-  height: auto; }
+.flow-text {
+  font-size: 3em; }
 
 /*# sourceMappingURL=custom.css.map */
