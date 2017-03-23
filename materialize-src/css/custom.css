@@ -13,6 +13,10 @@ main {
 .container {
   width: 80%; }
 
+.container-dashboard {
+  width: 65%;
+  margin: auto; }
+
 .flow-text {
   text-align: center; }
 
