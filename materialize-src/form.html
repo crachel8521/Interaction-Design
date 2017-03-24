@@ -24,52 +24,98 @@
     <br><br>
     <h4 class="center"> Create Account </h4>
     <br><br>
+    <script>
+	function validate() {
+		var firstName = document.getElementById('first_name');
+    var lastName = document.getElementById('last_name');
+		var username = document.getElementById('username');
+		var password = document.getElementById('password');
+		var address = document.getElementById('address');
+    var email = document.getElementById('email');
+		var telephone = document.getElementById('telephone');
+		var updates = document.getElementById('email_updates');
+
+		if(first_name.value == ''){
+			alert("Please Enter Your First Name");
+			return false;
+		}
+    if(last_name.value == ''){
+			alert("Please Enter Your Last Name");
+			return false;
+		}
+		if(username.value == ''){
+			alert("Please Enter Your Username");
+			return false;
+		}
+		if(password.value == ''){
+			alert("Please Enter Your Password");
+			return false;
+		}
+		if(address.value == ''){
+			alert("Please Enter Your Address");
+			return false;
+		}
+		if(email.value == ''){
+			alert("Please Enter Your E-mail");
+			return false;
+		}
+    if(telephone.value == ''){
+			alert("Please Enter Your Telephone Number");
+			return false;
+		}
+		if(email_updates.value == ''){
+			alert("Please Check If You Chose To Receive Updates");
+			return false;
+		}
+
+	}
+	</script>
 
       <div class="row">
       <form class="col s12">
         <div class="row">
           <div class="input-field col s6">
-            <input placeholder="First Name" id="first_name" type="text" class="validate">
+            <input placeholder="First Name" name="first_name" id="first_name" type="text" class="validate">
             <label for="first_name">First Name</label>
           </div>
           <div class="input-field col s6">
-            <input placeholder="Last Name" id="last_name" type="text" class="validate">
+            <input placeholder="Last Name" name="last_name" id="last_name" type="text" class="validate">
             <label for="last_name">Last Name</label>
           </div>
         </div>
         <div class="input-field col s12">
-          <input placeholder="Username" id="username" type="text" class="validate">
+          <input placeholder="Username" name="username" id="username" type="text" class="validate">
           <label for="username">Username</label>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input placeholder="Password" id="password" type="password" class="validate">
+            <input placeholder="Password" name="password" id="password" type="password" class="validate">
             <label for="password">Password</label>
           </div>
         </div>
         <div class="input-field col s12">
-          <input placeholder="Address" id="address" type="text" class="validate">
+          <input placeholder="Address" name="address" id="address" type="text" class="validate">
           <label for="address">Address</label>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input placeholder="Email" id="email" type="email" class="validate">
+            <input placeholder="Email" name="email" id="email" type="email" class="validate">
             <label for="email">Email</label>
           </div>
         </div>
         <div class="input-field col s12">
-          <input placeholder="Phone Number" id="telephone" type="tel" maxlength="18" class="validate">
+          <input placeholder="Phone Number" name="telephone" id="telephone" type="tel" maxlength="18" class="validate">
           <label for="telephone">Telephone</label>
         </div>
         <div class="input-field col s12">
-          <input placeholder="Updates" id="email_updates" type="checkbox" name="updates">
+          <input placeholder="Updates" name="email_updates" id="email_updates" type="checkbox" name="updates">
           <label for="email_updates">E-mail Updates</label>
         </div>
 
 
             <div class="input-field col s12">
               <br><br>
-              <a href="dashboard.html"><button type="submit" class="btn cyan darken-2">
+              <a href="dashboard.html"><button type="submit" onclick="return validate()" value="submit" class="btn cyan darken-2">
   							Submit
   						</button>
             </div>
