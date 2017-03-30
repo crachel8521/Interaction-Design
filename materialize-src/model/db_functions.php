@@ -98,4 +98,28 @@ function updateEmail($username, $newEmail) {
     $statement->execute();
     $statement->closeCursor();
 }
+
+function updateAddress($username, $newAdd) {
+    global $db;
+    $query = 'UPDATE Accounts
+              SET address = :newAdd
+              WHERE address = :address';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':newAdd', $newAdd);
+    $statement->bindValue(':username', $username);
+    $statement->execute();
+    $statement->closeCursor();
+}
+
+function updateTelehone($username, $newTel) {
+    global $db;
+    $query = 'UPDATE Accounts
+              SET telephone = :newTel
+              WHERE telephone = :telephone';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':newTel', $newTel);
+    $statement->bindValue(':username', $username);
+    $statement->execute();
+    $statement->closeCursor();
+}
 ?>
