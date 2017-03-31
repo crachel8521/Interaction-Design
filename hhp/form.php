@@ -8,9 +8,8 @@ if(isset($_POST['submit'])){
 	$password = $_POST['password'];
 	$address = $_POST['address'];
 	$email = $_POST['email'];
-	$telephone = $_POST['telephone'];
 	$email_updates = $_POST['email_updates'];
-  $message = "Name: " . $first_name . $last_name . "\r\nTelephone: " . $telephone . "\r\Email: " .  $email .  ;
+  $message = "Name: " . $first_name . $last_name . "\r\n. "\r\Email: " .  $email .  ;
 
     //Makes a var named myfile and makes a file named servicerequest.txt
     $myfile = fopen("servicerequest.txt", "w") or die("Unable to open file!");

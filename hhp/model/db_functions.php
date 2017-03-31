@@ -15,12 +15,12 @@ function userExists($username) {
     return $exists;
 }
 
-function createUser($first_name, $last_name, $username, $user_id, $password, $email, $address, $telephone, $email_updates, $user_type) {
+function createUser($first_name, $last_name, $username, $user_id, $password, $email, $address, $email_updates, $user_type) {
     global $db;
     $query = 'INSERT INTO Accounts
-                 (first_name, last_name, username, user_id, password, email, address, telephone, email_updates, user_type)
+                 (first_name, last_name, username, user_id, password, email, address, email_updates, user_type)
               VALUES
-                 (:first_name, :last_name, :username, :user_id, :password, :email, :address, :telephone, :email_updates, :user_type)';
+                 (:first_name, :last_name, :username, :user_id, :password, :email, :address, :email_updates, :user_type)';
    $statement = $db->prepare($query);
   $statement->bindValue(':first_name', $first_name);
   $statement->bindValue(':last_name', $last_name);
@@ -29,7 +29,6 @@ function createUser($first_name, $last_name, $username, $user_id, $password, $em
   $statement->bindValue(':password', $password);
 	$statement->bindValue(':email', $email);
 	$statement->bindValue(':address', $address);
-	$statement->bindValue(':telephone', $telephone);
   $statement->bindValue(':email_updates', $email_updates);
   $statement->bindValue(':user_type', $user_type);
     $statement->execute();
@@ -106,18 +105,6 @@ function updateAddress($username, $newAdd) {
               WHERE address = :address';
     $statement = $db->prepare($query);
     $statement->bindValue(':newAdd', $newAdd);
-    $statement->bindValue(':username', $username);
-    $statement->execute();
-    $statement->closeCursor();
-}
-
-function updateTelehone($username, $newTel) {
-    global $db;
-    $query = 'UPDATE Accounts
-              SET telephone = :newTel
-              WHERE telephone = :telephone';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':newTel', $newTel);
     $statement->bindValue(':username', $username);
     $statement->execute();
     $statement->closeCursor();
