@@ -3,17 +3,6 @@
 Admin Functions
 */
 
-function getUsers() {
-  global $db;
-  $query = 'SELECT * FROM Accounts
-      ORDER BY userName';
-  $statement = $db->prepare($query);
-  $statement->execute();
-$users = $statement->fetchAll();
-$statement->closeCursor();
-  return $users;
-}
-
 function deleteUser($user_ID) {
   global $db;
   $query = 'DELETE FROM Accounts

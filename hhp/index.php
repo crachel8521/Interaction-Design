@@ -9,28 +9,21 @@
 </head>
 <body>
 
+	<div>
+		<table>
+			<tr>
+		    	<th>Users</th>
+		 	</tr>
 
-<div class="container">
-	<table class="pub-names">
-		<tr>
-	    	<th>Users</th>
-	 	</tr>
+			<?php $users = getUsers(); ?>
 
-        <tr>
-        	<td>
-                	<?php
-									echo "Test";
-									$result = mysql_query("SELECT * FROM Accounts WHERE user_id='1' LIMIT 1");
-									$row = mysql_fetch_array($result);
-									echo $result;
-									echo $row;
-									echo $row['user_id'];?>
-        	</td>
-        </tr>
+		 	<?php foreach($users as $u) : ?>
+	        <tr>
+	        	<td>  <?php echo $u['first_name']; ?>  </td>
+	        </tr>
+			<?php endforeach; ?>
+		</table>
+	</div>
 
-
-
-	</table>
-</div>
 </body>
 </html>
