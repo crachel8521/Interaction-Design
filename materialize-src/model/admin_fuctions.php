@@ -14,107 +14,70 @@ $statement->closeCursor();
   return $users;
 }
 
-function deleteUser($userID) {
+function deleteUser($user_ID) {
   global $db;
   $query = 'DELETE FROM Accounts
             WHERE user_id = :user_id';
   $statement = $db->prepare($query);
-  $statement->bindValue(':userID', $userID);
+  $statement->bindValue(':user_id', $user_ID);
   $statement->execute();
   $statement->closeCursor();
 }
 
-function deletePub($pubID) {
+function deleteBuilder($builder_sname) {
   global $db;
-  $query = 'DELETE FROM Pubs
-            WHERE pubID = :pubID';
+  $query = 'DELETE FROM builder
+            WHERE builder_sname = :builder_sname';
   $statement = $db->prepare($query);
-  $statement->bindValue(':pubID', $pubID);
+  $statement->bindValue(':builder_sname', $builder_sname);
   $statement->execute();
   $statement->closeCursor();
 }
 
-function deleteAmentiesForPubs($amenityID) {
+
+function deleteMentor($mentee_sname) {
   global $db;
-  $query = 'DELETE FROM PubAmenity
-            WHERE amenityID = :amenityID';
+  $query = 'DELETE FROM mentor
+            WHERE mentee_sname = :mentee_sname';
   $statement = $db->prepare($query);
-  $statement->bindValue(':amenityID', $amenityID);
+  $statement->bindValue(':mentee_sname', $mentee_sname);
   $statement->execute();
   $statement->closeCursor();
 }
 
-function deletePubAmenities($pubID) {
+function deleteStories($story_title) {
   global $db;
-  $query = 'DELETE FROM PubAmenity
-            WHERE pubID = :pubID';
+  $query = 'DELETE FROM Stories
+            WHERE story_title = :story_title';
   $statement = $db->prepare($query);
-  $statement->bindValue(':pubID', $pubID);
+  $statement->bindValue(':story_title', $story_title);
   $statement->execute();
   $statement->closeCursor();
 }
 
-function createCrawl($crawlName, $crawlDate, $crawlBeginTime, $crawlEndTime, $crawlDescription
-      , $crawlLink, $createDate, $updatedBy) {
+function createEvents($event_id, $event_name, $event_desc, $event_type, $event_location) {
   global $db;
-  $query = 'INSERT INTO Crawls
-               (crawlName, crawlDate, crawlBeginTime, crawlEndTime, createDate
-                  , updatedBy, updateDate, crawlDescription, crawlLink)
+  $query = 'INSERT INTO Events
+               (event_id, event_name, event_desc, event_type, event_location)
             VALUES
-               (:crawlName, :crawlDate, :crawlBeginTime, :crawlEndTime, :createDate
-                  , :updatedBy, :createDate, :crawlDescription, :crawlLink)';
+               (:event_id, :event_name, :event_desc, :event_type, :event_location)';
   $statement = $db->prepare($query);
-  $statement->bindValue(':crawlName', $crawlName);
-  $statement->bindValue(':crawlDate', $crawlDate);
-  $statement->bindValue(':crawlBeginTime', $crawlBeginTime);
-  $statement->bindValue(':crawlEndTime', $crawlEndTime);
-  $statement->bindValue(':createDate', $createDate);
+  $statement->bindValue(':event_id', $event_id);
+  $statement->bindValue(':event_name', $event_name);
+  $statement->bindValue(':event_desc', $event_desc);
+  $statement->bindValue(':event_type', $event_type);
+  $statement->bindValue(':event_location', $event_location);
   $statement->bindValue(':updatedBy', $updatedBy);
-  $statement->bindValue(':crawlDescription', $crawlDescription);
-  $statement->bindValue(':crawlLink', $crawlLink);
   $statement->execute();
   $statement->closeCursor();
 }
 
-function deleteCrawl($crawlID) {
+function deleteEvents($event_name) {
   global $db;
-  $query = 'DELETE FROM Crawls
-            WHERE crawlID = :crawlID';
+  $query = 'DELETE FROM Events
+            WHERE event_name = :event_name';
   $statement = $db->prepare($query);
-  $statement->bindValue(':crawlID', $crawlID);
-  $statement->execute();
-  $statement->closeCursor();
-}
-
-function getAmenities() {
-  global $db;
-  $query = 'SELECT * FROM Amenities
-            ORDER BY description';
-  $statement = $db->prepare($query);
-  $statement->execute();
-  $amenities = $statement->fetchAll(PDO::FETCH_ASSOC);
-  $statement->closeCursor();
-  return $amenities;
-}
-
-function createAmenity($amenityDescription) {
-  global $db;
-  $query = 'INSERT INTO Amenities
-               (description)
-            VALUES
-               (:amenityDescription)';
-  $statement = $db->prepare($query);
-  $statement->bindValue(':amenityDescription', $amenityDescription);
-  $statement->execute();
-  $statement->closeCursor();
-}
-
-function deleteAmenity($amenityID) {
-  global $db;
-  $query = 'DELETE FROM Amenities
-            WHERE amenityID = :amenityID';
-  $statement = $db->prepare($query);
-  $statement->bindValue(':amenityID', $amenityID);
+  $statement->bindValue(':event_name', $event_name);
   $statement->execute();
   $statement->closeCursor();
 }
