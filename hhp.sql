@@ -42,7 +42,7 @@ CREATE TABLE Stories
   story_title   varchar(155) not null,
   user_id  int not null,
   story_text varchar(500),
-  Data_posted Datetime
+  date_posted Datetime
 );
 
 INSERT INTO Stories VALUES 
@@ -51,7 +51,7 @@ INSERT INTO Stories VALUES
 (3,'Story 3', 1, 'Story text comes here', now())
 ;
 
-CREATE TABLE mentor
+CREATE TABLE Mentor
 (
   user_id     int not null,
   mentee_name varchar(100) not null,
@@ -59,11 +59,11 @@ CREATE TABLE mentor
   mentee_sname  varchar(50) not null
 );
 
-INSERT INTO mentor VALUES 
+INSERT INTO Mentor VALUES 
 (3,'Ralph Simonian', 'ralph123', 'jones22')
 ;
 
-CREATE TABLE builder
+CREATE TABLE Builder
 (
   user_id     int not null,
   builder_name varchar(100) not null,
@@ -71,6 +71,6 @@ CREATE TABLE builder
   builder_sname  varchar(50) not null
 );
 
-INSERT INTO builder VALUES 
+INSERT INTO Builder VALUES 
 (4,'Steven Smith', 1095, 'Steve49')
 ;
