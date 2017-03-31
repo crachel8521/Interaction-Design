@@ -75,6 +75,19 @@ function getEmail($username) {
     return $email;
 }
 
+function getEmail() {
+    global $db;
+    $query = 'SELECT email FROM Accounts
+              WHERE user_id = "1"';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':user_id', $username);
+    $statement->execute();
+    $results = $statement->fetch();
+    $emailExample = $results['email'];
+    $statement->closeCursor();
+    return $emailExample;
+}
+
 function updatePassword($username, $password) {
     global $db;
     $query = 'UPDATE Accounts

@@ -1,11 +1,9 @@
 <?php
 	$database = 'id1201354_hhp';
-	$host = 'ns01.000webhost.com';
-    $dsn = 'mysql:host=id1201354_forum;dbname=id1201354_hhp';
+	$host = 'localhost';
+    $dsn = 'mysql:host=localhost;dbname=id1201354_hhp';
     $dbUserName = 'id1201354_crachel';
     $password = 'rachelm8';
-
-    echo "Test Connection: ";
 
     try {
         $conn = new PDO("mysql:host=$host; dbname=$database", $dbUserName, $password);
