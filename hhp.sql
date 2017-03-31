@@ -5,20 +5,25 @@ CREATE DATABASE hhp;
 -- select the database
 USE hhp;
 
-CREATE TABLE Accounts
+DROP TABLE Accounts;
+CREATE TABLE Accounts 
 (
-  user_id     int not null,
-  password    varchar(35) not null,
-  last_name   varchar(35) not null,
-  first_name  varchar(35) not null,
-  age  		  int not null,
-  user_type   varchar(35) not null
+user_id     int not null,
+user_name   varchar(155)not null,   
+password    varchar(35) not null,   
+first_name  varchar(35) not null,   
+last_name   varchar(35) not null,   
+email       varchar(35) not null,   
+address     varchar(155),   
+age     	int not null,   
+user_type   varchar(35) 
 );
 
-INSERT INTO Accounts VALUES 
-(1,'hhp','Smith','Cindy',21,'parent'),
-(2,'hhp','Jones','Elmer',7,'kid'),
-(3,'hhp','Simonian','Ralph',14,'mentor')
+
+INSERT INTO Accounts VALUES
+(1, 'SCindy','hhp','Smith','Cindy', 'cindy@uncc.edu', '1234, address comes here',21,'parent'), 
+(2, 'JElmer','hhp','Jones','Elmer', 'jones@uncc.edu', '1234, address comes here',7,'kid'), 
+(3, 'SRalph','hhp','Simonian','Ralph', 'ralph@uncc.edu', '1234, address comes here',14,'mentor')
 ;
 
 CREATE TABLE Events
