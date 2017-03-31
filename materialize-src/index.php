@@ -18,7 +18,13 @@
 
         <tr>
         	<td>
-                	<?php echo $emailExample; ?>
+                	<?php
+									echo "Test";
+									$result = mysql_query("SELECT * FROM Accounts WHERE user_id='1' LIMIT 1");
+									$row = mysql_fetch_array($result);
+									echo $result;
+									echo $row;
+									echo $row['user_id'];?>
         	</td>
         </tr>
 
