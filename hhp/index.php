@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+require_once('model/database.php');
+require_once('model/admin_fuctions.php');
+require_once('model/db_functions.php');
+?>
+
 <html>
 <!-- the head section -->
 <head>
@@ -15,7 +21,7 @@
 		    	<th>Users</th>
 		 	</tr>
 
-			<?php $users = getUsers(); ?>
+<?php $users = getUsers(); ?>
 
 		 	<?php foreach($users as $u) : ?>
 	        <tr>

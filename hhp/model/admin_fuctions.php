@@ -2,6 +2,18 @@
 /*
 Admin Functions
 */
+require_once('database.php');
+
+function getUsers() {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT * FROM Accounts
+            ORDER BY user_id';
+  $statement = $db->prepare($query);
+  $statement->execute();
+  $users = $statement->fetchAll();
+  $statement->closeCursor();
+  return $users;
+}
 
 function deleteUser($user_ID) {
   global $db;
@@ -13,7 +25,7 @@ function deleteUser($user_ID) {
   $statement->closeCursor();
 }
 
-function deleteBuilder($builder_sname) {
+function deleteBuildProject($builder_sname) {
   global $db;
   $query = 'DELETE FROM builder
             WHERE builder_sname = :builder_sname';
