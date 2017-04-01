@@ -3,6 +3,17 @@
 	Login System
 */
 
+function getEvents() {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT * FROM Events
+            ORDER BY event_id';
+  $statement = $db->prepare($query);
+  $statement->execute();
+  $events = $statement->fetchAll();
+  $statement->closeCursor();
+  return $events;
+}
+
 function userExists($username) {
     global $db;
     $query = 'SELECT 1 FROM Accounts
