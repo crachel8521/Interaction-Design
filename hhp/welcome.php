@@ -14,7 +14,7 @@ require_once('model/db_functions.php');
   <div class="row">
   <div class="col s4"></div>
   <a class="waves-effect waves-light btn-large cyan darken-1" href="form.html">Create Account</a>
-  <a class="waves-effect waves-light btn-large cyan darken-1" style="width:16%" href="login.html">Sign In</a>
+  <a class="waves-effect waves-light btn-large cyan darken-1" style="width:16%" href=".?action=show_login">Sign In</a>
 
 </div>
 <br>  <br><br><br>

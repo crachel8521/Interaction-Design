@@ -46,6 +46,18 @@ function createUser($first_name, $last_name, $username, $user_id, $password, $em
     $statement->closeCursor();
 }
 
+function userExists($username) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+    $query = 'SELECT 1 FROM Users
+			  WHERE username = :username';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':username', $username);
+    $statement->execute();
+	$exists = $statement->fetch();
+	$statement->closeCursor();
+    return $exists;
+}
+
 function getUserType($user_type) {
     global $db;
     $query = 'SELECT user_type FROM Accounts
