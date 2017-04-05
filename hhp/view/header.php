@@ -22,6 +22,13 @@
           <li><a href="events.html">Events</a></li>
           <li><a href="community.html">Stories</a></li>
           <li><a href="chat.html">Chat</a></li>
+          <?php
+      			if($_SESSION['userType'] == 'admin')
+      			{?>
+      				<li>
+      					<a href=".?action=show_admin">Admin</a>
+      				</li>
+      		<?php } ?>
         </ul>
         <ul class="side-nav" id="mobile-demo">
           <li><a href="dashboard.html">Dashboard</a></li>

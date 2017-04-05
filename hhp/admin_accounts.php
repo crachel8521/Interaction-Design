@@ -7,7 +7,7 @@ $users = getUsers();
 <br><br>
 <div class="containerSmall">
 <ul class="collection with-header">
-       <li class="collection-header"><h4 id="textCenter">Accounts</h4></li>
+       <li class="collection-header"><h4 style="text-align:center">Accounts</h4></li>
        <?php foreach($users as $user) : ?>
          <form action="." method="post">
            <input type="hidden" name="action"
@@ -18,7 +18,7 @@ $users = getUsers();
          <span class="title"><?php echo $user['user_id']; ?></span>
         <p><?php echo $user['first_name']; ?> <?php echo $user['last_name']; ?>
         </p>
-        <a href="#!" class="secondary-content"><input type="submit" value="Delete"></a>
+        <a href="#!" class="secondary-content" style="margin-right: 30px"><input type="submit" value="Delete"></a>
       </li>
        <?php endforeach; ?>
      </ul>
