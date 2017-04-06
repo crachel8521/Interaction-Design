@@ -30,11 +30,13 @@
     var lastName = document.getElementById('last_name');
 		var username = document.getElementById('username');
 		var password = document.getElementById('password');
+    var password2 = document.getElementById('password2');
 		var address = document.getElementById('address');
     var email = document.getElementById('email');
 		var updates = document.getElementById('email_updates');
 
-		if(first_name.value == ''){
+
+    if(first_name.value == ''){
 			alert("Please Enter Your First Name");
 			return false;
 		}
@@ -50,9 +52,17 @@
 			alert("Please Enter Your Password");
 			return false;
 		}
+    if(password2.value == ''){
+			alert("Please Confirm Your Password");
+			return false;
+		}
 		if(address.value == ''){
 			alert("Please Enter Your Address");
 			return false;
+    }
+    if(age.value == ''){
+  			alert("Please Enter Your Age");
+  			return false;
 		}
 		if(email.value == ''){
 			alert("Please Enter Your E-mail");
@@ -70,7 +80,8 @@
         <div class="row" style="width:60%">
           <div class="col s8 offset-s2">
 
-          <form action="form.php" method="POST">
+          <form action="form.php" onsubmit="addUser()" method="POST">
+
 
           <div class="input-field">
             <input placeholder="First Name" name="first_name" id="first_name" type="text" class="validate">
@@ -96,17 +107,29 @@
           </div>
 
 
+          <div class="input-field">
+            <input placeholder="Confirm Password" name="password2" id="password2" type="password" class="validate">
+            <label for="password">Confirm Password</label>
+          </div>
+
+
         <div class="input-field">
           <input placeholder="Address" name="address" id="address" type="text" class="validate">
           <label for="address">Address</label>
         </div>
 
 
+        <div class="input-field">
+          <input placeholder="Age" name="age" id="age" type="number" class="validate">
+          <label for="last_name">Age</label>
+        </div>
+
 
           <div class="input-field">
             <input placeholder="Email" name="email" id="email" type="email" class="validate">
             <label for="email">Email</label>
           </div>
+
 
         <div class="input-field">
           <input placeholder="Updates" name="email_updates" id="email_updates" type="checkbox" name="updates">

@@ -15,7 +15,7 @@ function getEvents() {
 }
 
 function userExists($username) {
-    global $db;
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT 1 FROM Accounts
 			  WHERE username = :username';
     $statement = $db->prepare($query);
@@ -27,18 +27,19 @@ function userExists($username) {
 }
 
 function createUser($first_name, $last_name, $username, $user_id, $password, $email, $address, $email_updates, $user_type) {
-    global $db;
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'INSERT INTO Accounts
-                 (first_name, last_name, username, user_id, password, email, address, email_updates, user_type)
+                 (user_id, password, last_name, first_name, username, email, age, address, email_updates, user_type)
               VALUES
-                 (:first_name, :last_name, :username, :user_id, :password, :email, :address, :email_updates, :user_type)';
+                 (:user_id, :password, :last_name, :first_name, :username, :email, :age, :address, :email_updates, :user_type)';
    $statement = $db->prepare($query);
-  $statement->bindValue(':first_name', $first_name);
-  $statement->bindValue(':last_name', $last_name);
-  $statement->bindValue(':userName', $username);
   $statement->bindValue(':user_id', $user_id);
   $statement->bindValue(':password', $password);
+  $statement->bindValue(':last_name', $last_name);
+  $statement->bindValue(':first_name', $first_name);
+  $statement->bindValue(':userName', $username);
 	$statement->bindValue(':email', $email);
+  $statement->bindValue(':age', $age);
 	$statement->bindValue(':address', $address);
   $statement->bindValue(':email_updates', $email_updates);
   $statement->bindValue(':user_type', $user_type);
@@ -47,7 +48,7 @@ function createUser($first_name, $last_name, $username, $user_id, $password, $em
 }
 
 function getUserType($user_type) {
-    global $db;
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT user_type FROM Accounts
               WHERE user_type = :user_type';
     $statement = $db->prepare($query);
@@ -60,7 +61,7 @@ function getUserType($user_type) {
 }
 
 function getPassword($username) {
-    global $db;
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT password FROM Accounts
               WHERE username = :username';
     $statement = $db->prepare($query);
@@ -73,7 +74,7 @@ function getPassword($username) {
 }
 
 function getEmail($username) {
-    global $db;
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT email FROM Accounts
               WHERE username = :username';
     $statement = $db->prepare($query);
@@ -86,7 +87,7 @@ function getEmail($username) {
 }
 
 function updatePassword($username, $password) {
-    global $db;
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'UPDATE Accounts
               SET password = :password
               WHERE username = :username';
@@ -98,7 +99,7 @@ function updatePassword($username, $password) {
 }
 
 function updateEmail($username, $newEmail) {
-    global $db;
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'UPDATE Accounts
               SET email = :newEmail
               WHERE username = :username';
@@ -110,7 +111,7 @@ function updateEmail($username, $newEmail) {
 }
 
 function updateAddress($username, $newAdd) {
-    global $db;
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'UPDATE Accounts
               SET address = :newAdd
               WHERE address = :address';
