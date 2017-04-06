@@ -5,7 +5,7 @@ CREATE DATABASE hhp;
 -- select the database
 USE hhp;
 
-DROP TABLE Accounts;
+DROP TABLE if exists Accounts;
 CREATE TABLE Accounts 
 (
 user_id     int not null,
@@ -27,7 +27,7 @@ INSERT INTO Accounts VALUES
 (3, 'SRalph','hhp','Simonian','Ralph', 'Ralph16','ralph@uncc.edu', '1234, address comes here',14,'mentor')
 ;
 
-Drop Table Events;
+Drop Table if exists Events;
 CREATE TABLE Events
 (
   event_id     int not null,
@@ -59,19 +59,18 @@ INSERT INTO Stories VALUES
 (3,'Story 3', 1, 'Story text comes here', now())
 ;
 
+DROP TABLE if exists Mentor;
 CREATE TABLE Mentor
 (
-  user_id     int not null,
-  mentee_name varchar(100) not null,
-  mentor_sname  varchar(50) not null,
-  mentee_sname  varchar(50) not null
+  mentor_id int not null,
+  mentee_id int not null
 );
 
 INSERT INTO Mentor VALUES 
-(3,'Ralph Simonian', 'ralph123', 'jones22')
+(3, 2)
 ;
 
-DROP TABLE Builder_Status;
+DROP TABLE if exists Builder_Status;
 CREATE TABLE Builder_Status
 (
   builder_user_id    int not null,

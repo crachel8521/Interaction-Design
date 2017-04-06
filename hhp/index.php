@@ -39,7 +39,7 @@ if ($action == 'show_welcome') {
 		header("Location: .");
 		die();
 	}
-else if ($action == 'delete_account') {
+ if ($action == 'delete_account') {
   	$user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
   	if($user_id = $_SESSION['userPubInfo']['pubID']) {
   		unset($_SESSION['userPubInfo']);
