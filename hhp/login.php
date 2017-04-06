@@ -13,7 +13,7 @@ $events = getEvents();
         <input type="hidden" name="action" value="login_user">
       <!-- Email form -->
       <div class="form-group">
-          <input type="email" class="form-control" id="email" placeholder="User Name">
+          <input type="text" class="form-control" id="user_name" placeholder="User Name">
         </div>
       <!-- End email form -->
 
