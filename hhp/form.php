@@ -2,7 +2,9 @@
       session_start();
 
       include 'view/header.php';
-      include 'model/database.php';
+      require('model/database.php');
+      require_once('model/admin_fuctions.php');
+      require_once('model/db_functions.php');
       echo '<link rel="stylesheet" type="text/css" href="css/custom.css">';
 ?>
 
@@ -23,22 +25,21 @@ if(isset($_POST['submit'])){
 	$email_updates = mysql_real_escape_string($_POST['email_updates']);
   $message = "Name: " . $first_name .' ' . $last_name . "<br> Email: " .  $email . " <br> Username: " .$username . "<br> Address: " . $address;
 
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
   $checkusername = mysql_query("SELECT * FROM Accounts WHERE Username = '".$username."'");
-if($checkusername < 1){
+  if($checkusername < 1){
+    $query = 'INSERT INTO Accounts
+                 (user_id, password, last_name, first_name, username, email, age, address, email_updates)
+              VALUES
+                 (:user_id, :password, :last_name, :first_name, :username, :email, :age, :address, :email_updates)';
 
-  $query = 'INSERT INTO Accounts
-               (user_id, password, last_name, first_name, username, email, age, address, email_updates)
-            VALUES
-               (:user_id, :password, :last_name, :first_name, :username, :email, :age, :address, :email_updates)';
-
- $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
- $statement = $db->prepare($query);
  echo $message;
  echo "<br> Thank you! Your Registration Has Been Completed, " . $first_name;
  echo " <br> In A Few Moments, You Should Be Receiving An E-mail To: " . $email;
 }else{
  echo "Sorry.  This Username Already Exists.  Please Try Again.";
 }
+
   }
 
   addUser();

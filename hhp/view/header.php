@@ -23,7 +23,7 @@
           <li><a href="community.html">Stories</a></li>
           <li><a href="chat.html">Chat</a></li>
           <?php
-      			if($_SESSION['user_type'] == 'admin')
+      			if($_SESSION['usertype'] == 'admin')
       			{?>
       				<li>
       					<a href=".?action=show_admin">Admin</a>
