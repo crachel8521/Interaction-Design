@@ -3,9 +3,14 @@
 
       include 'view/header.php';
       require('model/database.php');
-      require_once('model/admin_fuctions.php');
-      require_once('model/db_functions.php');
       echo '<link rel="stylesheet" type="text/css" href="css/custom.css">';
+
+$db_host = 'localhost';
+$db_username = 'root';
+$db_password = '';
+$db_name = 'hhp';
+mysql_connect( $db_host, $db_username, $db_password) or die(mysql_error());
+mysql_select_db($db_name);
 ?>
 
 <?php
@@ -25,13 +30,13 @@ if(isset($_POST['submit'])){
 	$email_updates = mysql_real_escape_string($_POST['email_updates']);
   $message = "Name: " . $first_name .' ' . $last_name . "<br> Email: " .  $email . " <br> Username: " .$username . "<br> Address: " . $address;
 
-  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
-  $checkusername = mysql_query("SELECT * FROM Accounts WHERE Username = '".$username."'");
-  if($checkusername < 1){
-    $query = 'INSERT INTO Accounts
-                 (user_id, password, last_name, first_name, username, email, age, address, email_updates)
-              VALUES
-                 (:user_id, :password, :last_name, :first_name, :username, :email, :age, :address, :email_updates)';
+  $query = "SELECT * FROM Accounts WHERE last_name = '$last_name'";
+  $sqlsearch = mysql_query($query);
+  $resultcount = mysql_numrows($sqlsearch);
+  if($resultcount == 0){
+    $query = mysql_query("INSERT INTO Accounts (password, last_name, first_name, username, address, email, email_updates)
+                               VALUES ('$password', '$last_name', '$first_name', '$username', '$address', '$email', '$email_updates') ")
+                               or die(mysql_error());
 
  echo $message;
  echo "<br> Thank you! Your Registration Has Been Completed, " . $first_name;
