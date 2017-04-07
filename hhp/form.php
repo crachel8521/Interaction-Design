@@ -30,9 +30,9 @@ if(isset($_POST['submit'])){
 	$email_updates = mysql_real_escape_string($_POST['email_updates']);
   $message = "Name: " . $first_name .' ' . $last_name . "<br> Email: " .  $email . " <br> Username: " .$username . "<br> Address: " . $address;
 
-  $query = "SELECT * FROM Accounts WHERE username = '$username'";
+  $query = "SELECT * FROM Accounts WHERE user_name = '$username'";
   $sqlsearch = mysql_query($query);
-  $resultcount = mysql_numrows($sqlsearch);
+  $resultcount = mysql_num_rows($sqlsearch);
   if($resultcount == 0){
     $query = 'INSERT INTO Accounts
                  (user_id, password, last_name, first_name, username, email, age, address, email_updates)
