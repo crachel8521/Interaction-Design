@@ -22,8 +22,14 @@ function userExists($user_name) {
     $statement->bindValue(':user_name', $user_name);
     $statement->execute();
 	  $exists = $statement->fetch();
+    if (isset($exists)) {
 	  $statement->closeCursor();
-    return ($exists);
+    $isTrue = true;
+    }
+    else {
+      $isTrue = false;
+    }
+    return $isTrue;
 }
 
 
@@ -46,6 +52,19 @@ function createUser($first_name, $last_name, $username, $user_id, $password, $em
   $statement->bindValue(':user_type', $user_type);
     $statement->execute();
     $statement->closeCursor();
+}
+
+function getUserID($user_name) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+    $query = 'SELECT user_id FROM Accounts
+              WHERE user_name = :user_name';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':user_name', $user_name);
+    $statement->execute();
+    $results = $statement->fetch();
+    $user_type = $results['user_id'];
+    $statement->closeCursor();
+    return $user_type;
 }
 
 function getUserType($user_name) {
