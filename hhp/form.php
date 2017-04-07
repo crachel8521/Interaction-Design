@@ -34,8 +34,10 @@ if(isset($_POST['submit'])){
   $sqlsearch = mysql_query($query);
   $resultcount = mysql_numrows($sqlsearch);
   if($resultcount == 0){
-    $query = mysql_query("INSERT INTO Accounts (password, last_name, first_name)
-                               VALUES ('$password', '$last_name', '$first_name') ")
+    $query = 'INSERT INTO Accounts
+                 (user_id, password, last_name, first_name, username, email, age, address, email_updates)
+              VALUES
+                 (:user_id, :password, :last_name, :first_name, :username, :email, :age, :address, :email_updates)'
                                or die(mysql_error());
 
  echo $message;
