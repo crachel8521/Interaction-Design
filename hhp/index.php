@@ -22,24 +22,35 @@ if ($action == 'show_welcome') {
     include('login.php');
 } else if ($action == 'login_user') {
 	// verify password is correct, then login.
-	$username = filter_input(INPUT_POST, 'username');
+	$user_name = filter_input(INPUT_POST, 'user_name');
 	$password = filter_input(INPUT_POST, 'password');
-	$dbPassword = getPassword($username);
-	$userType = getUserType($username);
+	$dbPassword = getPassword($user_name);
+	$usertype = getUserType($user_name);
+  echo 'first else';
 	// if username doesnt exist or password doesn't match hash, go back to welcome with login errors
-	if(!userExists($userName) || !password_verify($password, $dbPassword)){
+	if(!userExists($user_name)){
 		$errors[] = "Invalid user name or password.";
+    echo 'Im in the if statement';
+    echo $user_name;
 		include('login.php');
+
 	} else {
+    echo 'I made it to the else';
 		// go to home page with user logged in and populate session variables
-		$_SESSION['username'] = $username;
+		$_SESSION['username'] = $user_name;
 		$_SESSION['usertype'] = $usertype;
-		$_SESSION['user_id'] = getUserID($username);
+		$_SESSION['user_id'] = getUserID($user_name);
 		//$_SESSION['userPubInfo']['amenities'] = getMyPubAmenitiesIDs($_SESSION['userPubInfo']['pubID']);
 		header("Location: .");
 		die();
+    include('login_test.php');
 	}
+<<<<<<< HEAD
  if ($action == 'delete_account') {
+=======
+}
+else if ($action == 'delete_account') {
+>>>>>>> origin/master
   	$user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
   	if($user_id = $_SESSION['userPubInfo']['pubID']) {
   		unset($_SESSION['userPubInfo']);
@@ -47,6 +58,8 @@ if ($action == 'show_welcome') {
   	deleteUser($user_id);
   	$users = getUsers();
   	include('admin_accounts.php');
+} else {
+  $user = 'test';
 }
 
 

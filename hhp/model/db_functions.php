@@ -14,31 +14,39 @@ function getEvents() {
   return $events;
 }
 
-function userExists($username) {
-    global $db;
-    $query = 'SELECT 1 FROM Accounts
-			  WHERE username = :username';
+function userExists($user_name) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+    $query = 'SELECT * FROM Accounts
+			  WHERE user_name = :user_name';
     $statement = $db->prepare($query);
-    $statement->bindValue(':username', $username);
+    $statement->bindValue(':user_name', $user_name);
     $statement->execute();
-	$exists = $statement->fetch();
-	$statement->closeCursor();
-    return $exists;
+	  $exists = $statement->fetch();
+    if (isset($exists)) {
+	  $statement->closeCursor();
+    $isTrue = true;
+    }
+    else {
+      $isTrue = false;
+    }
+    return $isTrue;
 }
 
+
 function createUser($first_name, $last_name, $username, $user_id, $password, $email, $address, $email_updates, $user_type) {
-    global $db;
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'INSERT INTO Accounts
-                 (first_name, last_name, username, user_id, password, email, address, email_updates, user_type)
+                 (user_id, password, last_name, first_name, username, email, age, address, email_updates, user_type)
               VALUES
-                 (:first_name, :last_name, :username, :user_id, :password, :email, :address, :email_updates, :user_type)';
+                 (:user_id, :password, :last_name, :first_name, :username, :email, :age, :address, :email_updates, :user_type)';
    $statement = $db->prepare($query);
-  $statement->bindValue(':first_name', $first_name);
-  $statement->bindValue(':last_name', $last_name);
-  $statement->bindValue(':userName', $username);
   $statement->bindValue(':user_id', $user_id);
   $statement->bindValue(':password', $password);
+  $statement->bindValue(':last_name', $last_name);
+  $statement->bindValue(':first_name', $first_name);
+  $statement->bindValue(':userName', $username);
 	$statement->bindValue(':email', $email);
+  $statement->bindValue(':age', $age);
 	$statement->bindValue(':address', $address);
   $statement->bindValue(':email_updates', $email_updates);
   $statement->bindValue(':user_type', $user_type);
@@ -46,24 +54,25 @@ function createUser($first_name, $last_name, $username, $user_id, $password, $em
     $statement->closeCursor();
 }
 
-function userExists($username) {
+function getUserID($user_name) {
     $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
-    $query = 'SELECT 1 FROM Users
-			  WHERE username = :username';
+    $query = 'SELECT user_id FROM Accounts
+              WHERE user_name = :user_name';
     $statement = $db->prepare($query);
-    $statement->bindValue(':username', $username);
+    $statement->bindValue(':user_name', $user_name);
     $statement->execute();
-	$exists = $statement->fetch();
-	$statement->closeCursor();
-    return $exists;
+    $results = $statement->fetch();
+    $user_type = $results['user_id'];
+    $statement->closeCursor();
+    return $user_type;
 }
 
-function getUserType($user_type) {
-    global $db;
+function getUserType($user_name) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT user_type FROM Accounts
-              WHERE user_type = :user_type';
+              WHERE user_name = :user_name';
     $statement = $db->prepare($query);
-    $statement->bindValue(':username', $username);
+    $statement->bindValue(':user_name', $user_name);
     $statement->execute();
     $results = $statement->fetch();
     $user_type = $results['user_type'];
@@ -71,25 +80,25 @@ function getUserType($user_type) {
     return $user_type;
 }
 
-function getPassword($username) {
-    global $db;
+function getPassword($user_name) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT password FROM Accounts
-              WHERE username = :username';
+              WHERE user_name = :user_name';
     $statement = $db->prepare($query);
-    $statement->bindValue(':username', $username);
+    $statement->bindValue(':user_name', $user_name);
     $statement->execute();
     $results = $statement->fetch();
-	$password = $results['password'];
+	  $password = $results['password'];
     $statement->closeCursor();
     return $password;
 }
 
-function getEmail($username) {
-    global $db;
+function getEmail($user_name) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT email FROM Accounts
-              WHERE username = :username';
+              WHERE user_name = :user_name';
     $statement = $db->prepare($query);
-    $statement->bindValue(':username', $username);
+    $statement->bindValue(':user_name', $user_name);
     $statement->execute();
     $results = $statement->fetch();
     $email = $results['email'];
@@ -97,38 +106,38 @@ function getEmail($username) {
     return $email;
 }
 
-function updatePassword($username, $password) {
-    global $db;
+function updatePassword($user_name, $password) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'UPDATE Accounts
               SET password = :password
-              WHERE username = :username';
+              WHERE user_name = :user_name';
     $statement = $db->prepare($query);
     $statement->bindValue(':password', $password);
-    $statement->bindValue(':username', $username);
+    $statement->bindValue(':user_name', $user_name);
     $statement->execute();
     $statement->closeCursor();
 }
 
-function updateEmail($username, $newEmail) {
-    global $db;
+function updateEmail($user_name, $newEmail) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'UPDATE Accounts
               SET email = :newEmail
-              WHERE username = :username';
+              WHERE user_name = :user_name';
     $statement = $db->prepare($query);
     $statement->bindValue(':newEmail', $newEmail);
-    $statement->bindValue(':username', $username);
+    $statement->bindValue(':user_name', $user_name);
     $statement->execute();
     $statement->closeCursor();
 }
 
-function updateAddress($username, $newAdd) {
-    global $db;
+function updateAddress($user_name, $newAdd) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'UPDATE Accounts
               SET address = :newAdd
               WHERE address = :address';
     $statement = $db->prepare($query);
     $statement->bindValue(':newAdd', $newAdd);
-    $statement->bindValue(':username', $username);
+    $statement->bindValue(':user_name', $user_name);
     $statement->execute();
     $statement->closeCursor();
 }

@@ -1,27 +1,53 @@
 <?php
-       echo '<link rel="stylesheet" type="text/css" href="css/custom.css">';
+      session_start();
 
+      include 'view/header.php';
+      require('model/database.php');
+      echo '<link rel="stylesheet" type="text/css" href="css/custom.css">';
+
+$db_host = 'localhost';
+$db_username = 'root';
+$db_password = '';
+$db_name = 'hhp';
+mysql_connect( $db_host, $db_username, $db_password) or die(mysql_error());
+mysql_select_db($db_name);
+?>
+
+<?php
+
+function addUser()
+{
 if(isset($_POST['submit'])){
-  $first_name = $_POST['first_name'];
-	$last_name = $_POST['last_name'];
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	$address = $_POST['address'];
-	$email = $_POST['email'];
-	$email_updates = $_POST['email_updates'];
-  $message = "Name: " . $first_name . $last_name . "\r\n. "\r\Email: " .  $email .  ;
+    session_start();
+  }
+  $password = mysql_real_escape_string($_POST['password']);
+  $password2 = mysql_real_escape_string($_POST['password2']);
+  $last_name = mysql_real_escape_string($_POST['last_name']);
+  $first_name =  mysql_real_escape_string($_POST['first_name']);
+	$username = mysql_real_escape_string($_POST['username']);
+	$address = mysql_real_escape_string($_POST['address']);
+	$email = mysql_real_escape_string($_POST['email']);
+	$email_updates = mysql_real_escape_string($_POST['email_updates']);
+  $message = "Name: " . $first_name .' ' . $last_name . "<br> Email: " .  $email . " <br> Username: " .$username . "<br> Address: " . $address;
 
-    //Makes a var named myfile and makes a file named servicerequest.txt
-    $myfile = fopen("servicerequest.txt", "w") or die("Unable to open file!");
-    //This is what will be written to the file
-    fwrite($myfile, $message);
-    //This closes the file
-    fclose($myfile);
-    //If all goes well this will display
-    echo "Thank you. Service Request Completed. " . $first_name;
-    }
+  $query = "SELECT * FROM Accounts WHERE last_name = '$last_name'";
+  $sqlsearch = mysql_query($query);
+  $resultcount = mysql_numrows($sqlsearch);
+  if($resultcount == 0){
+    $query = mysql_query("INSERT INTO Accounts (password, last_name, first_name, username, address, email, email_updates)
+                               VALUES ('$password', '$last_name', '$first_name', '$username', '$address', '$email', '$email_updates') ")
+                               or die(mysql_error());
 
+ echo $message;
+ echo "<br> Thank you! Your Registration Has Been Completed, " . $first_name;
+ echo " <br> In A Few Moments, You Should Be Receiving An E-mail To: " . $email;
+}else{
+ echo "Sorry.  This Username Already Exists.  Please Try Again.";
+}
 
-  echo nl2br('<br/><a href="dashboard.html">Go back to the main page</a>.');
+  }
+
+  addUser();
+  include 'view/footer.php';
 
 ?>
