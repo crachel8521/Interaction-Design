@@ -1,6 +1,6 @@
 <?php
 require('model/database.php');
-require_once('model/admin_fuctions.php');
+require_once('model/admin_functions.php');
 require_once('model/db_functions.php');
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -45,7 +45,7 @@ if ($action == 'show_welcome') {
 		die();
     include('login_test.php');
 	}
-<<<<<<< HEAD
+HEAD
  if ($action == 'delete_account') {
 =======
 }

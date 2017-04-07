@@ -1,6 +1,6 @@
 <?php
 include 'view/header.php';
-require_once('model/admin_fuctions.php');
+require_once('model/admin_functions.php');
 require_once('model/db_functions.php');
 $users = getUsers();
 ?>

@@ -19,7 +19,7 @@
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="events.html">Events</a></li>
+          <li><a href="events.php">Events</a></li>
           <li><a href="community.html">Stories</a></li>
           <li><a href="chat.html">Chat</a></li>
           <?php
