@@ -22,7 +22,7 @@ function userExists($user_name) {
     $statement->bindValue(':user_name', $user_name);
     $statement->execute();
 	  $exists = $statement->fetch();
-    if (isset($exists)) {
+    if ($exists['user_name'] == $user_name) {
 	  $statement->closeCursor();
     $isTrue = true;
     }
