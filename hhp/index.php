@@ -12,8 +12,6 @@ if (session_status() == PHP_SESSION_NONE) {
  if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if ($action == NULL) {
-      echo "show_welcome from NULL";
-      echo $action;
       $action = 'show_welcome';
     }
   }
@@ -22,6 +20,8 @@ if (session_status() == PHP_SESSION_NONE) {
      include('welcome.php');
    } else if ($action == 'show_login'){
      include('login.php');
+   } else if ($action == 'show_dashboard'){
+     include('dashboard.php');
    } else if ($action == 'login_user') {
      $user_name = filter_input(INPUT_POST, 'user_name');
      $password = filter_input(INPUT_POST, 'password');
@@ -45,6 +45,10 @@ if (session_status() == PHP_SESSION_NONE) {
           //include('dashboard.php');
         }
 
+   } else if ($action == 'logout'){
+   		$_SESSION = array();
+   		session_destroy();
+   		header('Location: .');
    } else {
         echo "Im in the last else";
    }

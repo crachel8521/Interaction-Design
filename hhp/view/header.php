@@ -12,16 +12,32 @@
 
 <body>
 
+
   <nav class="cyan">
     <div class="container">
       <div class="nav-wrapper">
         <a href="index.html" class="brand-logo">HHP</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="dashboard.html">Dashboard</a></li>
+          <?php
+          if(isset($_SESSION['usertype'])){
+      			if($_SESSION['usertype'] == 'parent')
+      			{?>
+      				<li>
+      					<a href=".?action=show_dashboard">Dashboard</a>
+      				</li>
+
           <li><a href="events.php">Events</a></li>
           <li><a href="community.html">Stories</a></li>
           <li><a href="chat.html">Chat</a></li>
+          <?php } ?>
+          <?php
+      			if($_SESSION['usertype'] == 'parent')
+      			{?>
+      				<li>
+      					<a href=".?action=logout">Logout</a>
+      				</li>
+      		<?php } ?>
           <?php
       			if($_SESSION['usertype'] == 'admin')
       			{?>
@@ -31,17 +47,21 @@
       		<?php } ?>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="community.html">Stories</a></li>
-          <li><a href="chat.html">Chat</a></li>
+          <?php
+            if($_SESSION['usertype'] == 'parent')
+            {?>
+              <li><a href="events.html">Events</a></li>
+              <li><a href="community.html">Stories</a></li>
+              <li><a href="chat.html">Chat</a></li>
+      		    <li><a href=".?action=logout">Logout</a></li>
+      		<?php } ?>
           <?php
       			if($_SESSION['usertype'] == 'admin')
       			{?>
       				<li>
       					<a href=".?action=show_admin">Admin</a>
       				</li>
-      		<?php } ?>
+      		<?php } }?>
         </ul>
       </div>
     </div>
