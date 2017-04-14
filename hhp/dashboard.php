@@ -11,17 +11,29 @@ $events = getEvents();
           <div class="card cyan">
             <div class="card-content white-text">
               <span class="card-title">Welcome <?php echo $_SESSION['first_name']; echo '&nbsp'; echo $_SESSION['last_name']; ?></span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <?php
+              if(isset($_SESSION['user_sname']))
+              {?>
+                <p>Slack Username: <?php echo $_SESSION['user_sname']; ?></p>
+                <?php } else {?>
+                  <a class="waves-effect waves-light btn">Enter Slack Username</a>
+                  <?php } ?>
             </div>
           </div>
         </div>
         <div class="col s6">
           <div class="card cyan darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <span class="card-title">Mentoring</span>
+              <?php
+              if(isset($_SESSION['user_sname']))
+              {?>
+                <p>Slack Username: <?php echo $_SESSION['user_sname']; ?></p>
+                <?php } else {?>
+                  <a class="waves-effect waves-light btn">Enter Slack Username</a>
+                  <?php } ?>
+              <p>Mentor: </p>
+              <p>Mentee: </p>
             </div>
           </div>
         </div>
@@ -30,9 +42,8 @@ $events = getEvents();
               <div class="col s12">
                 <div class="card cyan darken-1">
                   <div class="card-content white-text">
-                    <span class="card-title">Card Title</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
+                    <span class="card-title">Build</span>
+                    <p>Request a Device</p>
                   </div>
                 </div>
               </div>

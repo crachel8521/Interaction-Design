@@ -148,6 +148,19 @@ function getLastName($user_name) {
   return $last_name;
 }
 
+function getSlackName($user_name) {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT user_sname FROM Accounts
+            WHERE user_name = :user_name';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':user_name', $user_name);
+  $statement->execute();
+  $results = $statement->fetch();
+  $user_sname = $results['user_sname'];
+  $statement->closeCursor();
+  return $user_sname;
+}
+
 function getEmail($user_name) {
     $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT email FROM Accounts

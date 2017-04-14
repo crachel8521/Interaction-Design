@@ -5,14 +5,13 @@ CREATE DATABASE hhp;
 -- select the database
 USE hhp;
 
-DROP TABLE if exists Accounts;
 CREATE TABLE Accounts 
 (
 user_id     int not null,
 user_name   varchar(155)not null,   
 password    varchar(35) not null,   
-first_name  varchar(35) not null,   
-last_name   varchar(35) not null,
+last_name  varchar(35) not null,   
+first_name   varchar(35) not null,
 user_sname  varchar(50),  
 email       varchar(35) not null,   
 address     varchar(155),   
@@ -22,12 +21,12 @@ user_type   varchar(35)
 
 
 INSERT INTO Accounts VALUES
-(1, 'SCindy','hhp','Smith','Cindy', 'Cindy07','cindy@uncc.edu', '1234, address comes here',21,'parent'), 
-(2, 'JElmer','hhp','Jones','Elmer', 'Elmar17','jones@uncc.edu', '1234, address comes here',7,'kid'), 
-(3, 'SRalph','hhp','Simonian','Ralph', 'Ralph16','ralph@uncc.edu', '1234, address comes here',14,'mentor')
+(1, 'SCindy','hhp','Smith','Cindy', 'Cindy07','cindy@uncc.edu', '1234, address comes here',21,'user'), 
+(2, 'JElmer','hhp','Jones','Elmer', 'Elmar17','jones@uncc.edu', '1234, address comes here',7,'user'), 
+(3, 'SRalph','hhp','Simonian','Ralph', '','ralph@uncc.edu', '1234, address comes here',14,'user')
+(3, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'admin')
 ;
 
-Drop Table if exists Events;
 CREATE TABLE Events
 (
   event_id     int not null,
@@ -39,9 +38,9 @@ CREATE TABLE Events
 );
 
 INSERT INTO Events VALUES 
-(1,'event 1', 'event description comes here','Family','Charlotte', 'Event link comes here'),
-(2,'event 2', 'event description comes here','Kids','Rock hill', 'Event link comes here'),
-(3,'event 3', 'event description comes here','Designer','Durham', 'Event link comes here')
+(1,'HHP Get Together', 'event description comes here','Family','Charlotte', 'Event link comes here'),
+(2,'HHP Picnic', 'event description comes here','Kids','Rock hill', 'Event link comes here'),
+(3,'HHP Builder Meeting', 'event description comes here','Designer','Durham', 'Event link comes here')
 ;
 
 CREATE TABLE Stories
@@ -50,16 +49,16 @@ CREATE TABLE Stories
   story_title   varchar(155) not null,
   user_id  int not null,
   story_text varchar(500),
-  date_posted Datetime
+  date_posted Datetime,
+  likes int not null
 );
 
 INSERT INTO Stories VALUES 
-(1,'Story 1', 3, 'Story text comes here', now()),
-(2,'Story 2', 2, 'Story text comes here', now()),
-(3,'Story 3', 1, 'Story text comes here', now())
+(1,'Story 1', 3, 'Story text comes here', now(), 10),
+(2,'Story 2', 2, 'Story text comes here', now(), 15),
+(3,'Story 3', 1, 'Story text comes here', now(), 20)
 ;
 
-DROP TABLE if exists Mentor;
 CREATE TABLE Mentor
 (
   mentor_id int not null,
@@ -70,7 +69,6 @@ INSERT INTO Mentor VALUES
 (3, 2)
 ;
 
-DROP TABLE if exists Builder_Status;
 CREATE TABLE Builder_Status
 (
   builder_user_id    int not null,

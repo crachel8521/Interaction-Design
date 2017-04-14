@@ -35,6 +35,7 @@ if (session_status() == PHP_SESSION_NONE) {
      $usertype = getUserType($user_name);
      $first_name = getFirstName($user_name);
      $last_name = getLastName($user_name);
+     $user_sname = getSlackName($user_name);
      $isTrue = userExists($user_name);
      $isPassword = checkPassword($password);
      if($isTrue == false || $isPassword == false){
@@ -46,6 +47,7 @@ if (session_status() == PHP_SESSION_NONE) {
           $_SESSION['user_id'] = getUserID($user_name);
           $_SESSION['first_name'] = $first_name;
           $_SESSION['last_name'] = $last_name;
+          $_SESSION['user_sname'] = $user_sname;
           //header("Location: .");
           //die();
           include('dashboard.php');
