@@ -23,8 +23,8 @@ user_type   varchar(35)
 INSERT INTO Accounts VALUES
 (1, 'SCindy','hhp','Smith','Cindy', 'Cindy07','cindy@uncc.edu', '1234, address comes here',21,'user'), 
 (2, 'JElmer','hhp','Jones','Elmer', 'Elmar17','jones@uncc.edu', '1234, address comes here',7,'user'), 
-(3, 'SRalph','hhp','Simonian','Ralph', '','ralph@uncc.edu', '1234, address comes here',14,'user')
-(3, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'admin')
+(3, 'SRalph','hhp','Simonian','Ralph', ' ','ralph@uncc.edu', '1234, address comes here',14,'user'),
+(4, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'admin')
 ;
 
 CREATE TABLE Events
@@ -61,12 +61,15 @@ INSERT INTO Stories VALUES
 
 CREATE TABLE Mentor
 (
+  user_id int not null,
   mentor_id int not null,
-  mentee_id int not null
+  mentee_id int not null,
+  mentorship_type varchar(35) not null
 );
 
 INSERT INTO Mentor VALUES 
-(3, 2)
+(2, 2, 1, 'mentor'),
+(1, 2, 1, 'mentee')
 ;
 
 CREATE TABLE Builder_Status
@@ -82,3 +85,4 @@ CREATE TABLE Builder_Status
 INSERT INTO Builder_Status VALUES 
 (4, 2,'Steven Smith', '','status update comes here', now())
 ;
+
