@@ -24,9 +24,8 @@ if (session_status() == PHP_SESSION_NONE) {
             </div>
             <div class="card-content">
               <h5>Title</h5>
-              <p style="font-size:.75em">Username</p>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <p style="font-size:.75em"><?php echo $stories['story_title']; ?></p>
+              <p><?php echo $stories['story_text']; ?></p>
             </div>
             <div class="card-action">
             <div class="row">
