@@ -33,21 +33,22 @@ if (session_status() == PHP_SESSION_NONE) {
      $password = filter_input(INPUT_POST, 'password');
      $dbPassword = getPassword($user_name);
      $usertype = getUserType($user_name);
+     $first_name = getFirstName($user_name);
+     $last_name = getLastName($user_name);
      $isTrue = userExists($user_name);
-     if($isTrue == false){
+     $isPassword = checkPassword($password);
+     if($isTrue == false || $isPassword == false){
           $errors[] = "Invalid user name or password.";
-          echo 'Im in the IF statement';
-          echo $user_name;
           include('login.php');
-          echo userExists($user_name);
         } else {
-          echo "Im in the ELSE statement";
           $_SESSION['user_name'] = $user_name;
           $_SESSION['usertype'] = $usertype;
           $_SESSION['user_id'] = getUserID($user_name);
+          $_SESSION['first_name'] = $first_name;
+          $_SESSION['last_name'] = $last_name;
           //header("Location: .");
           //die();
-          include('login_test.php');
+          include('dashboard.php');
           //include('dashboard.php');
         }
    } else if ($action == 'logout'){

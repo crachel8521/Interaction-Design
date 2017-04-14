@@ -32,6 +32,24 @@ function userExists($user_name) {
     return $isTrue;
 }
 
+function checkPassword($password) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+    $query = 'SELECT * FROM Accounts
+			  WHERE password = :password';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':password', $password);
+    $statement->execute();
+	  $exists = $statement->fetch();
+    if ($exists['password'] == $password) {
+	  $statement->closeCursor();
+    $isTrue = true;
+    }
+    else {
+      $isTrue = false;
+    }
+    return $isTrue;
+}
+
 
 function createUser($first_name, $last_name, $username, $user_id, $password, $email, $address, $email_updates, $user_type) {
     $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
@@ -91,6 +109,32 @@ function getPassword($user_name) {
 	  $password = $results['password'];
     $statement->closeCursor();
     return $password;
+}
+
+function getFirstName($user_name) {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT first_name FROM Accounts
+            WHERE user_name = :user_name';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':user_name', $user_name);
+  $statement->execute();
+  $results = $statement->fetch();
+  $first_name = $results['first_name'];
+  $statement->closeCursor();
+  return $first_name;
+}
+
+function getLastName($user_name) {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT last_name FROM Accounts
+            WHERE user_name = :user_name';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':user_name', $user_name);
+  $statement->execute();
+  $results = $statement->fetch();
+  $last_name = $results['last_name'];
+  $statement->closeCursor();
+  return $last_name;
 }
 
 function getEmail($user_name) {
