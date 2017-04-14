@@ -20,7 +20,7 @@ function getStories() {
             ORDER BY date_posted';
   $statement = $db->prepare($query);
   $statement->execute();
-  $events = $statement->fetchAll();
+  $stories = $statement->fetchAll();
   $statement->closeCursor();
   return $stories;
 }
