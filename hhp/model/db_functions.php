@@ -14,6 +14,17 @@ function getEvents() {
   return $events;
 }
 
+function getStories() {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT * FROM Stories
+            ORDER BY date_posted';
+  $statement = $db->prepare($query);
+  $statement->execute();
+  $events = $statement->fetchAll();
+  $statement->closeCursor();
+  return $stories;
+}
+
 function userExists($user_name) {
     $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT * FROM Accounts
