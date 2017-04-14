@@ -1,8 +1,8 @@
 <?php
 include 'view/header.php';
-//require_once('model/admin_functions.php');
-//require_once('model/db_functions.php');
-//$events = getEvents();
+require_once('model/admin_functions.php');
+require_once('model/db_functions.php');
+$stories = getStories();
 
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
