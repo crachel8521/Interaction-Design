@@ -15,7 +15,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <div class="containerSmall">
       <div class="row">
 
-//php loopstart
+
 <?php foreach($stories as $stories) : ?>
         <div class="col s12">
           <div class="card">
@@ -23,8 +23,8 @@ if (session_status() == PHP_SESSION_NONE) {
               <img src="images/sample1.jpg">
             </div>
             <div class="card-content">
-              <h5>Title</h5>
-              <p style="font-size:.75em"><?php echo $stories['story_title']; ?></p>
+              <h5><?php echo $stories['story_title']; ?></h5>
+              <p style="font-size:.75em"></p>
               <p><?php echo $stories['story_text']; ?></p>
             </div>
             <div class="card-action">
@@ -40,12 +40,6 @@ if (session_status() == PHP_SESSION_NONE) {
           </div>
         </div>
         <?php endforeach; ?>
-  //php loopend
-
-
-
-
-
 
 </div>
 </div>
