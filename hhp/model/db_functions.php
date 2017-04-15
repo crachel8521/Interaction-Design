@@ -14,15 +14,15 @@ function getEvents() {
   return $events;
 }
 
-function getStories() {
+function getStory() {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
-  $query = 'SELECT * FROM Stories
+  $query = 'SELECT * FROM Story
             ORDER BY date_posted';
   $statement = $db->prepare($query);
   $statement->execute();
-  $stories = $statement->fetchAll();
+  $story = $statement->fetchAll();
   $statement->closeCursor();
-  return $stories;
+  return $story;
 }
 
 function userExists($user_name) {
@@ -249,16 +249,16 @@ function updateAddress($user_name, $newAdd) {
     $statement->closeCursor();
 }
 
-function addStory($story_id, $story_title, $user_id, $story_text, $likes, $date_posted) {
+function addStory($story_id, $story_title, $user_name, $story_text, $likes, $date_posted) {
   global $db;
-  $query = 'INSERT INTO Stories
-               (story_id, story_title, user_id, story_text, likes, date_posted)
+  $query = 'INSERT INTO Story
+               (story_id, story_title, user_name, story_text, likes, date_posted)
             VALUES
-               (:story_id, :story_title, :user_id, :story_text; :likes, Now())';
+               (:story_id, :story_title, :user_name, :story_text; :likes, Now())';
   $statement = $db->prepare($query);
   $statement->bindValue(':story_id', $story_id);
   $statement->bindValue(':story_title', $story_title);
-  $statement->bindValue(':user_id', $user_id);
+  $statement->bindValue(':user_name', $user_name);
   $statement->bindValue(':story_text', $story_text);
   $statement->bindValue(':likes', $likes);
   $statement->execute();

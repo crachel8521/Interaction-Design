@@ -2,7 +2,7 @@
 include 'view/header.php';
 require_once('model/admin_functions.php');
 require_once('model/db_functions.php');
-$stories = getStories();
+$stories = getStory();
 
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
@@ -16,16 +16,17 @@ if (session_status() == PHP_SESSION_NONE) {
       <div class="row">
 
 
-<?php foreach($stories as $stories) : ?>
+<?php foreach($story as $story) : ?>
         <div class="col s12">
           <div class="card">
             <div class="card-image">
               <img src="images/sample1.jpg">
             </div>
             <div class="card-content">
-              <h5><?php echo $stories['story_title']; ?></h5>
+              <h5><?php echo $story['story_title']; ?></h5>
               <p style="font-size:.75em"></p>
-              <p><?php echo $stories['story_text']; ?></p>
+              <h6><?php echo $story['user_name']; ?></h6>
+              <p><?php echo $story['story_text']; ?></p>
             </div>
             <div class="card-action">
             <div class="row">
@@ -33,7 +34,7 @@ if (session_status() == PHP_SESSION_NONE) {
               <a href="#">Like</a>
             </div>
             <div class="col s1">
-              <?php echo $stories['likes']; ?>
+              <?php echo $story['likes']; ?>
             </div>
           </div>
             </div>
