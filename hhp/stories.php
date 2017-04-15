@@ -33,7 +33,7 @@ if (session_status() == PHP_SESSION_NONE) {
               <a href="#">Like</a>
             </div>
             <div class="col s1">
-              23
+              <?php echo $stories['likes']; ?>
             </div>
           </div>
             </div>

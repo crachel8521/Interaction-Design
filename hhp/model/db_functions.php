@@ -210,17 +210,18 @@ function updateAddress($user_name, $newAdd) {
     $statement->closeCursor();
 }
 
-function addStory($story_id, $story_title, $user_id, $story_text, $date_posted) {
+function addStory($story_id, $story_title, $user_id, $story_text, $likes, $date_posted) {
   global $db;
   $query = 'INSERT INTO Stories
-               (story_id, story_title, user_id, story_text, date_posted)
+               (story_id, story_title, user_id, story_text, likes, date_posted)
             VALUES
-               (:story_id, :story_title, :user_id, :story_text, Now())';
+               (:story_id, :story_title, :user_id, :story_text; :likes, Now())';
   $statement = $db->prepare($query);
   $statement->bindValue(':story_id', $story_id);
   $statement->bindValue(':story_title', $story_title);
   $statement->bindValue(':user_id', $user_id);
   $statement->bindValue(':story_text', $story_text);
+  $statement->bindValue(':likes', $likes);
   $statement->execute();
   $statement->closeCursor();
 }
