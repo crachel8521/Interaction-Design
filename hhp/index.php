@@ -31,11 +31,11 @@ if (session_status() == PHP_SESSION_NONE) {
    } else if ($action == 'login_user') {
      $user_name = filter_input(INPUT_POST, 'user_name');
      $password = filter_input(INPUT_POST, 'password');
-     $dbPassword = getPassword($user_name);
-     $usertype = getUserType($user_name);
-     $first_name = getFirstName($user_name);
-     $last_name = getLastName($user_name);
-     $user_sname = getSlackName($user_name);
+     $user_id = getUserID($user_name);
+     $usertype = getUserType($user_id);
+     $first_name = getFirstName($user_id);
+     $last_name = getLastName($user_id);
+     $user_sname = getSlackName($user_id);
      $isTrue = userExists($user_name);
      $isPassword = checkPassword($password);
      if($isTrue == false || $isPassword == false){

@@ -2,7 +2,7 @@
 include 'view/header.php';
 require_once('model/admin_functions.php');
 require_once('model/db_functions.php');
-$events = getEvents();
+$mentorship_type = getMentorshipType($_SESSION['user_id']);
 ?>
 
 <br><br>
@@ -26,14 +26,19 @@ $events = getEvents();
             <div class="card-content white-text">
               <span class="card-title">Mentoring</span>
               <?php
-              if(isset($_SESSION['user_sname']))
+              if(isset($mentorship_type))
               {?>
-                <p>Slack Username: <?php echo $_SESSION['user_sname']; ?></p>
+
+                <?php
+                if($mentorship_type == 'mentor')
+                {?>
+                  <p>Mentee Name: </p>
+                  <?php } else {?>
+                    <p>Mentor Name: </p>
+<?php } ?>
                 <?php } else {?>
                   <a class="waves-effect waves-light btn">Enter Slack Username</a>
                   <?php } ?>
-              <p>Mentor: </p>
-              <p>Mentee: </p>
             </div>
           </div>
         </div>

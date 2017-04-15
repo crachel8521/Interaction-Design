@@ -47,7 +47,7 @@ CREATE TABLE Stories
 (
   story_id     int not null,
   story_title   varchar(155) not null,
-  user_id  int not null,
+  user_name   varchar(155)not null,
   story_text varchar(500),
   date_posted Datetime,
   likes int not null
@@ -68,8 +68,8 @@ CREATE TABLE Mentor
 );
 
 INSERT INTO Mentor VALUES 
-(2, 2, 1, 'mentor'),
-(1, 2, 1, 'mentee')
+(1, 2, 1, 'mentor'),
+(2, 2, 1, 'mentee')
 ;
 
 CREATE TABLE Builder_Status

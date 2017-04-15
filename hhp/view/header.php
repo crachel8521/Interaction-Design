@@ -25,7 +25,7 @@
             <?php } ?>
             <?php
             if(isset($_SESSION['usertype'])){
-              if($_SESSION['usertype'] == 'parent')
+              if($_SESSION['usertype'] == 'user')
               {?>
                 <li><a href=".?action=show_dashboard">Dashboard</a></li>
                 <li><a href=".?action=show_events">Events</a></li>
@@ -49,7 +49,7 @@
                     <?php } ?>
                     <?php
                     if(isset($_SESSION['usertype'])){
-                      if($_SESSION['usertype'] == 'parent')
+                      if($_SESSION['usertype'] == 'user')
                       {?>
                         <li><a href=".?action=show_dashboard">Dashboard</a></li>
                         <li><a href=".?action=show_events">Events</a></li>

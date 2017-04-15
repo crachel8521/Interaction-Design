@@ -96,12 +96,12 @@ function getUserID($user_name) {
     return $user_type;
 }
 
-function getUserType($user_name) {
+function getUserType($user_id) {
     $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT user_type FROM Accounts
-              WHERE user_name = :user_name';
+              WHERE user_id = :user_id';
     $statement = $db->prepare($query);
-    $statement->bindValue(':user_name', $user_name);
+    $statement->bindValue(':user_id', $user_id);
     $statement->execute();
     $results = $statement->fetch();
     $user_type = $results['user_type'];
@@ -109,12 +109,12 @@ function getUserType($user_name) {
     return $user_type;
 }
 
-function getPassword($user_name) {
+function getPassword($user_id) {
     $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT password FROM Accounts
-              WHERE user_name = :user_name';
+              WHERE user_id = :user_id';
     $statement = $db->prepare($query);
-    $statement->bindValue(':user_name', $user_name);
+    $statement->bindValue(':user_id', $user_id);
     $statement->execute();
     $results = $statement->fetch();
 	  $password = $results['password'];
@@ -122,12 +122,12 @@ function getPassword($user_name) {
     return $password;
 }
 
-function getFirstName($user_name) {
+function getFirstName($user_id) {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
   $query = 'SELECT first_name FROM Accounts
-            WHERE user_name = :user_name';
+            WHERE user_id = :user_id';
   $statement = $db->prepare($query);
-  $statement->bindValue(':user_name', $user_name);
+  $statement->bindValue(':user_id', $user_id);
   $statement->execute();
   $results = $statement->fetch();
   $first_name = $results['first_name'];
@@ -135,12 +135,12 @@ function getFirstName($user_name) {
   return $first_name;
 }
 
-function getLastName($user_name) {
+function getLastName($user_id) {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
   $query = 'SELECT last_name FROM Accounts
-            WHERE user_name = :user_name';
+            WHERE user_id = :user_id';
   $statement = $db->prepare($query);
-  $statement->bindValue(':user_name', $user_name);
+  $statement->bindValue(':user_id', $user_id);
   $statement->execute();
   $results = $statement->fetch();
   $last_name = $results['last_name'];
@@ -148,12 +148,12 @@ function getLastName($user_name) {
   return $last_name;
 }
 
-function getSlackName($user_name) {
+function getSlackName($user_id) {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
   $query = 'SELECT user_sname FROM Accounts
-            WHERE user_name = :user_name';
+            WHERE user_id = :user_id';
   $statement = $db->prepare($query);
-  $statement->bindValue(':user_name', $user_name);
+  $statement->bindValue(':user_id', $user_id);
   $statement->execute();
   $results = $statement->fetch();
   $user_sname = $results['user_sname'];
@@ -161,17 +161,56 @@ function getSlackName($user_name) {
   return $user_sname;
 }
 
-function getEmail($user_name) {
+function getEmail($user_id) {
     $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT email FROM Accounts
-              WHERE user_name = :user_name';
+              WHERE user_id = :user_id';
     $statement = $db->prepare($query);
-    $statement->bindValue(':user_name', $user_name);
+    $statement->bindValue(':user_id', $user_id);
     $statement->execute();
     $results = $statement->fetch();
     $email = $results['email'];
     $statement->closeCursor();
     return $email;
+}
+
+function getMentorshipType($user_id) {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT mentorship_type FROM Mentor
+            WHERE user_id = :user_id';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':user_id', $user_id);
+  $statement->execute();
+  $results = $statement->fetch();
+  $mentorship_type = $results['mentorship_type'];
+  $statement->closeCursor();
+  return $mentorship_type;
+}
+
+function getMentorID($user_id) {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT mentor_id FROM Mentor
+            WHERE user_id = :user_id';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':user_id', $user_id);
+  $statement->execute();
+  $results = $statement->fetch();
+  $mentor_id = $results['mentor_id'];
+  $statement->closeCursor();
+  return $mentor_id;
+}
+
+function getMenteeID($user_id) {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT mentee_id FROM Mentor
+            WHERE user_id = :user_id';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':user_id', $user_id);
+  $statement->execute();
+  $results = $statement->fetch();
+  $mentee_id = $results['mentee_id'];
+  $statement->closeCursor();
+  return $mentee_id;
 }
 
 function updatePassword($user_name, $password) {
