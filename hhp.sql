@@ -68,8 +68,8 @@ CREATE TABLE Mentor
 );
 
 INSERT INTO Mentor VALUES 
-(1, 2, 1, 'mentor'),
-(2, 2, 1, 'mentee')
+(1, 1, 2, 'mentor'),
+(2, 1, 2, 'mentee')
 ;
 
 CREATE TABLE Builder_Status

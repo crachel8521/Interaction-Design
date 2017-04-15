@@ -31,10 +31,14 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 
                 <?php
                 if($mentorship_type == 'mentor')
-                {?>
-                  <p>Mentee Name: </p>
-                  <?php } else {?>
-                    <p>Mentor Name: </p>
+                {
+                  $menteeID = getMenteeID($_SESSION['user_id']);
+                  ?>
+                  <p>Mentee Name: <?php echo getFirstName($menteeID); echo '&nbsp'; echo getLastName($menteeID);?></p>
+                  <?php } else {
+                    $mentorID = getMentorID($_SESSION['user_id']);
+                    ?>
+                    <p>Mentor Name: <?php echo getFirstName($mentorID); echo '&nbsp'; echo getLastName($mentorID);?></p>
 <?php } ?>
                 <?php } else {?>
                   <a class="waves-effect waves-light btn">Enter Slack Username</a>

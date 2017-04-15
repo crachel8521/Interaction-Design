@@ -53,6 +53,11 @@ if (session_status() == PHP_SESSION_NONE) {
           include('dashboard.php');
           //include('dashboard.php');
         }
+   } else if ($action == 'add_story'){
+     $story_title = filter_input(INPUT_POST, 'story_title');
+     $user_name = $_SESSION['user_name'];);
+
+     
    } else if ($action == 'logout'){
    		$_SESSION = array();
    		session_destroy();
