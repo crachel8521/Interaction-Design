@@ -29,8 +29,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
           <div class="input-field">
-            <input placeholder="Last Name" name="last_name" id="last_name" type="text" class="validate">
-            <label for="last_name">Last Name</label>
+            <input placeholder="Story Text" name="story_text" id="story_text" type="text" class="validate">
+            <label for="story_text">Story Text</label>
           </div>
 
 
@@ -39,58 +39,12 @@ if (session_status() == PHP_SESSION_NONE) {
           <label for="username">Username</label>
         </div>
 
-
-          <div class="input-field">
-            <input placeholder="Password" name="password" id="password" type="password" class="validate">
-            <label for="password">Password</label>
-          </div>
-
-
-          <div class="input-field">
-            <input placeholder="Confirm Password" name="password2" id="password2" type="password" class="validate">
-            <label for="password">Confirm Password</label>
-          </div>
-
-
-        <div class="input-field">
-          <input placeholder="Address" name="address" id="address" type="text" class="validate">
-          <label for="address">Address</label>
-        </div>
-
-
-        <div class="input-field">
-          <input placeholder="Age" name="age" id="age" type="number" class="validate">
-          <label for="last_name">Age</label>
-        </div>
-
-
-          <div class="input-field">
-            <input placeholder="Email" name="email" id="email" type="email" class="validate">
-            <label for="email">Email</label>
-          </div>
-
-
-        <div class="input-field">
-          <input placeholder="Updates" name="email_updates" id="email_updates" type="checkbox" name="updates">
-          <label for="email_updates">E-mail Updates</label>
-        </div>
-
         <br><br>
-
-        <!-- Dropdown Trigger -->
-  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>User Type</a>
-
-  <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><a href="#!">Child/Primary User</a></li>
-    <li><a href="#!"><i class="material-icons">view_module</i>Parent/Secondary User</a></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>Builder</a></li>
-  </ul>
 
 
         <div class="input-field">
               <br><br>
-              <a href="dashboard.html"><button type="submit" onclick="return validate()" value="submit" class="btn cyan darken-2">
+              <a href="stories.html"><button type="submit" onclick="return validate()" value="submit" class="btn cyan darken-2">
   							Submit
   						</button>
             </div>
