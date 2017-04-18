@@ -5,6 +5,7 @@ CREATE DATABASE hhp;
 -- select the database
 USE hhp;
 
+DROP TABLE IF EXISTS Accounts;
 CREATE TABLE Accounts 
 (
 user_id     int auto_increment,
@@ -28,6 +29,7 @@ INSERT INTO Accounts VALUES
 (4, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'admin')
 ;
 
+DROP TABLE IF EXISTS Events;
 CREATE TABLE Events
 (
   event_id     int auto_increment,
@@ -68,6 +70,7 @@ INSERT INTO Stories VALUES
 ;
 select * from stories;
 
+DROP TABLE IF EXISTS Mentor;
 CREATE TABLE Mentor
 (
   user_id int not null,
@@ -82,6 +85,7 @@ INSERT INTO Mentor VALUES
 (2, 1, 2, 'mentee')
 ;
 
+DROP TABLE IF EXISTS Builder_Status;
 CREATE TABLE Builder_Status
 (
   builder_user_id    int,
