@@ -7,7 +7,7 @@ USE hhp;
 
 CREATE TABLE Accounts 
 (
-user_id     int not null,
+user_id     int not null auto_increment primary key,
 user_name   varchar(155)not null,   
 password    varchar(35) not null,   
 last_name  varchar(35) not null,   
@@ -85,4 +85,3 @@ CREATE TABLE Builder_Status
 INSERT INTO Builder_Status VALUES 
 (4, 2,'Steven Smith', '','status update comes here', now())
 ;
-

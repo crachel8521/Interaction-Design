@@ -62,25 +62,24 @@ function checkPassword($password) {
 }
 
 
-function createUser($first_name, $last_name, $username, $user_id, $password, $email, $address, $email_updates, $user_type) {
+function createUser($user_name, $first_name, $last_name, $password, $email, $address, $age) {
     $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'INSERT INTO Accounts
-                 (user_id, password, last_name, first_name, username, email, age, address, email_updates, user_type)
+                 (user_id, user_name, password, last_name, first_name, email, address, age, user_type)
               VALUES
-                 (:user_id, :password, :last_name, :first_name, :username, :email, :age, :address, :email_updates, :user_type)';
+                 (:user_id, :user_name, :password, :last_name, :first_name, :email, :address, :age, :user_type)';
    $statement = $db->prepare($query);
-  $statement->bindValue(':user_id', $user_id);
+     $statement->bindValue(':user_id', NULL);
+  $statement->bindValue(':user_name', $user_name);
   $statement->bindValue(':password', $password);
   $statement->bindValue(':last_name', $last_name);
   $statement->bindValue(':first_name', $first_name);
-  $statement->bindValue(':userName', $username);
 	$statement->bindValue(':email', $email);
   $statement->bindValue(':age', $age);
 	$statement->bindValue(':address', $address);
-  $statement->bindValue(':email_updates', $email_updates);
-  $statement->bindValue(':user_type', $user_type);
-    $statement->execute();
-    $statement->closeCursor();
+  $statement->bindValue(':user_type', "user");
+  $statement->execute();
+  $statement->closeCursor();
 }
 
 function getUserID($user_name) {

@@ -13,7 +13,7 @@ require_once('model/db_functions.php');
   <h1 class="flow-text" style="margin-top:0px">Welcome to the Helping Hand Project Community.</h1>
   <div class="row">
   <div class="col s4"></div>
-  <a class="waves-effect waves-light btn-large cyan darken-1" href="form.html">Create Account</a>
+  <a class="waves-effect waves-light btn-large cyan darken-1" href="form.php">Create Account</a>
   <a class="waves-effect waves-light btn-large cyan darken-1" style="width:16%" href="login.php">Sign In</a>
 
 </div>

@@ -53,11 +53,20 @@ if (session_status() == PHP_SESSION_NONE) {
           include('dashboard.php');
           //include('dashboard.php');
         }
+   } else if ($action == 'register_user'){
+     $user_name = filter_input(INPUT_POST, 'user_name');
+     $first_name = filter_input(INPUT_POST, 'first_name');
+     $last_name = filter_input(INPUT_POST, 'last_name');
+     $password = filter_input(INPUT_POST, 'password');
+     $email = filter_input(INPUT_POST, 'email');
+     $address = filter_input(INPUT_POST, 'address');
+     $age = filter_input(INPUT_POST, 'age');
+     createUser($user_name, $first_name, $last_name, $password, $email, $address, $age);
+     include('login.php');
    } else if ($action == 'add_story'){
-     $story_title = filter_input(INPUT_POST, 'story_title');
-     $user_name = $_SESSION['user_name'];);
 
-     
+
+
    } else if ($action == 'logout'){
    		$_SESSION = array();
    		session_destroy();
