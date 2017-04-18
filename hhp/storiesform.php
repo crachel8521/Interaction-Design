@@ -40,14 +40,12 @@ if (session_status() == PHP_SESSION_NONE) {
 
         <br><br>
 
-
         <div class="input-field">
               <br><br>
               <a href="stories.html"><button type="submit" onclick="return validate()" value="submit" class="btn cyan darken-2">
   							Submit
   						</button>
             </div>
-
 
       </form>
     </div>
