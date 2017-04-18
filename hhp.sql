@@ -88,8 +88,8 @@ INSERT INTO Mentor VALUES
 DROP TABLE IF EXISTS Builder_Status;
 CREATE TABLE Builder_Status
 (
-  builder_user_id    int,
-  recipient_user_id    int,
+  builder_user_id    int not null,
+  recipient_user_id    int not null,
   builder_name varchar(100) not null,
   status_update  blob,
   status_desc varchar(500),
@@ -99,6 +99,6 @@ CREATE TABLE Builder_Status
 );
 
 INSERT INTO Builder_Status VALUES 
-(4, 2,'Steven Smith', '','Hand is in the designing process', now())
+(4, 2,'Steven Smith','','Hand is in the designing process', now())
 ;
 select * from builder_status;
