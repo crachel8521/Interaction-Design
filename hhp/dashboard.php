@@ -7,7 +7,7 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 
 <br><br>
 <div class="row">
-        <div class="col s6">
+        <div class="col s12 m6">
           <div class="card cyan">
             <div class="card-content white-text">
               <span class="card-title">Welcome <?php echo $_SESSION['first_name']; echo '&nbsp'; echo $_SESSION['last_name']; ?></span>
@@ -16,12 +16,12 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
               {?>
                 <p>Slack Username: <?php echo $_SESSION['user_sname']; ?></p>
                 <?php } else {?>
-                  <a class="waves-effect waves-light btn">Enter Slack Username</a>
+                  <a class="waves-effect waves-light btn purple">Enter Slack Username</a>
                   <?php } ?>
             </div>
           </div>
         </div>
-        <div class="col s6">
+        <div class="col s12 m6">
           <div class="card cyan darken-1">
             <div class="card-content white-text">
               <span class="card-title">Mentoring</span>
@@ -41,7 +41,7 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
                     <p>Mentor Name: <?php echo getFirstName($mentorID); echo '&nbsp'; echo getLastName($mentorID);?></p>
 <?php } ?>
                 <?php } else {?>
-                  <a class="waves-effect waves-light btn">Enter Slack Username</a>
+                  <a class="waves-effect waves-light btn purple">Become a Mentor/Mentee</a>
                   <?php } ?>
             </div>
           </div>
@@ -52,7 +52,10 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
                 <div class="card cyan darken-1">
                   <div class="card-content white-text">
                     <span class="card-title">Build</span>
-                    <p>Request a Device</p>
+                    <a class="waves-effect waves-light btn purple">Request a Device</a>
+                    <a class="waves-effect waves-light btn purple">Build a Device</a>
+                    <br><br>
+                    <span class="card-title">Project</span>
                   </div>
                 </div>
               </div>
