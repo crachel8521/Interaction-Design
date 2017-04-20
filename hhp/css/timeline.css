@@ -117,7 +117,7 @@
 .timeline-horizontal {
   list-style: none;
   position: relative;
-  padding: 20px 0px 20px 0px;
+  padding: 20px 0px 9px 0px;
   display: inline-block;
 }
 .timeline-horizontal:before {
@@ -131,7 +131,7 @@
 }
 .timeline-horizontal .timeline-item {
   display: table-cell;
-  height: 310px;
+  height: 240px;
   width: 20%;
   min-width: 320px;
   float: none !important;
@@ -166,6 +166,6 @@
 }
 .timeline-horizontal .timeline-item .timeline-badge {
   top: auto;
-  bottom: 0px;
+  bottom: 11px;
   left: 43px;
 }
