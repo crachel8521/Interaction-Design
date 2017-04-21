@@ -11,9 +11,12 @@ if (session_status() == PHP_SESSION_NONE) {
 ?>
 
   <div class="row" style="width:20%">
-    <br><br><br>
     <!-- Box -->
     <div class="pi-box">
+      <br><br>
+      <h4 class="center">Login</h4>
+
+  <br><br>
       <form action="index.php" method="post">
         <input type="hidden" name="action" value="login_user" />
         <!-- Email form -->
@@ -37,7 +40,9 @@ if (session_status() == PHP_SESSION_NONE) {
         <!-- Submit button -->
         <p>
           <!-- <button type="submit" class="btn cyan darken-2"> -->
-            <input type="submit" name="submit" value="Login" />
+          <button type="submit" value="submit" class="btn cyan darken-2">
+              Submit
+            </button>
           <!-- </button> -->
         </p>
         <!-- End submit button -->
