@@ -64,9 +64,9 @@ CREATE TABLE Stories
 );
 
 INSERT INTO Stories VALUES 
-(1,'Hamed’s Genium story', 3, 'Living in a big city, Hamed spends a lot of time walking and being outdoors. He depends on the Genium prosthetic leg to help him stay active with exercise and keep up with his friends and his career. As a prosthetist, Hamed knows the importance of a high functioning prosthesis like the Genium prosthetic leg.', '',now(),2),
-(2,'Josh’s DynamicArm story', 2, 'Josh’s drive and passion are reflected in every area of his life. Whether he is knotting his tie in preparation for handling a legal case or loosening up for a 3-point shot from the arc, he uses his DynamicArm to the fullest.', '',now(),5),
-(3,'Andrew and the X3 waterproof prosthetic leg', 1, 'Lt. Col. (Ret.) Andrew Lourake was the first Air Force pilot with an above-knee amputation to return to active duty. He did it on a C-Leg, and has since moved on to the X3, Ottobock’s remarkable waterproof microprocessor knee. In addition to jetting around lakes, he takes to the sky and works at the Veterans Air Command (VAC), an amazing organization that provides free air transportation to post 9/11 combat wounded and their families for medical and other compassionate purposes through a network of volunteer aircraft owners and pilots.', '',now(), 4)
+(1,"Hamed's Genium story", 3, "Living in a big city, Hamed spends a lot of time walking and being outdoors. He depends on the Genium prosthetic leg to help him stay active with exercise and keep up with his friends and his career. As a prosthetist, Hamed knows the importance of a high functioning prosthesis like the Genium prosthetic leg.", '',now(),2),
+(2,"Josh's DynamicArm story", 2, "Josh's drive and passion are reflected in every area of his life. Whether he is knotting his tie in preparation for handling a legal case or loosening up for a 3-point shot from the arc, he uses his DynamicArm to the fullest.", '',now(),5),
+(3,"Andrew and the X3 waterproof prosthetic leg", 1, "Lt. Col. (Ret.) Andrew Lourake was the first Air Force pilot with an above-knee amputation to return to active duty. He did it on a C-Leg, and has since moved on to the X3, Ottobock's remarkable waterproof microprocessor knee. In addition to jetting around lakes, he takes to the sky and works at the Veterans Air Command (VAC), an amazing organization that provides free air transportation to post 9/11 combat wounded and their families for medical and other compassionate purposes through a network of volunteer aircraft owners and pilots.", '',now(), 4)
 ;
 select * from stories;
 

@@ -15,8 +15,9 @@ if (session_status() == PHP_SESSION_NONE) {
     <div class="containerSmall">
       <div class="row">
 
+	  
+<?php foreach($stories as $story) : ?>
 
-<?php foreach($story as $story) : ?>
         <div class="col s12">
           <div class="card">
             <div class="card-image">

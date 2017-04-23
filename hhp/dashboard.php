@@ -5,6 +5,7 @@ require_once('model/db_functions.php');
 $mentorship_type = getMentorshipType($_SESSION['user_id']);
 ?>
 
+	
 <br><br>
 <div class="row">
         <div class="col s12 m6">
@@ -57,11 +58,11 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
                     <br><br>
                     <span class="card-title">Project</span>
                   </div>
-					<div class="container">
+					<div class="container timelineContainer">
     		<div class="row">
 				<div class="col-md-12" style="padding-right: 0px;padding-left: 0px;">
 					<div class="page-header">
-					  <h4 style="line-height: 0%;color:white;">Build Status</h4>
+					  <span class="card-title" style="color:#fff">Build Status</span>
 					</div>
 					<div style="display:inline-block;width:100%;overflow-y:auto;">
 					<ul class="timeline timeline-horizontal">
@@ -119,18 +120,6 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 								<div class="timeline-heading">
 									<h4 style="font-size: 1.28rem;line-height: 15%;" class="timeline-title">Mussum ipsum cacilds 5</h4>
 									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 6 hours ago via Builder</small></p>
-								</div>
-								<div class="timeline-body">
-									<p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-item">
-							<div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 style="font-size: 1.28rem;line-height: 15%;" class="timeline-title">Mussum ipsum cacilds 6</h4>
-									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3 hours ago via Builder</small></p>
 								</div>
 								<div class="timeline-body">
 									<p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>

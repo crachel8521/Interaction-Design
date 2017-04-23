@@ -16,7 +16,8 @@ function getEvents() {
 
 function getStory() {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
-  $query = 'SELECT * FROM Story
+  $query = 'SELECT * FROM stories
+  inner join accounts on stories.user_id= accounts.user_id 
             ORDER BY date_posted';
   $statement = $db->prepare($query);
   $statement->execute();
