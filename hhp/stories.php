@@ -12,13 +12,12 @@ if (session_status() == PHP_SESSION_NONE) {
 
   <div class="column"></div>
 <br><br>
-    <a class="waves-effect waves-light btn-large cyan darken-1" style="align-self: center;" href="storiesform.php">Tell Your Story</a>
+<a class="waves-effect waves-light btn-large cyan darken-1" style="align-self: center;" href="storiesform.php">Tell Your Story</a>    
     <div class="containerSmall">
            <div class="row">
 
 	  
 <?php foreach($stories as $story) : ?>
-
         <div class="col s12">
           <div class="card">
             <div class="card-image">

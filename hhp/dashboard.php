@@ -70,23 +70,23 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 							<div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h4 style="font-size: 1.28rem;line-height: 15%;" class="timeline-title">Mussum ipsum cacilds 1</h4>
+									<h4 style="font-size: 1.28rem;line-height: 100%;" class="timeline-title"><b>Hand measurements were taken</b></h4>
 									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 5 days ago via Builder</small></p>
 								</div>
 								<div class="timeline-body">
-									<p>Mussum ipsum cacilds, vidis litro abertis. Consetis faiz elementum girarzis, nisi eros gostis.</p>
-								</div>
+								<img src="images/timeline1.png" style="width: 100%; height: auto;max-width: 120px;max-height: 100px;" />
+								</div> 
 							</div>
 						</li>
 						<li class="timeline-item">
 							<div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h4 style="font-size: 1.28rem;line-height: 15%;" class="timeline-title">Mussum ipsum cacilds 2</h4>
+									<h4 style="font-size: 1.28rem;line-height: 100%;" class="timeline-title"><b>Hand color selected</b></h4>
 									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3 days ago via Builder</small></p>
 								</div>
 								<div class="timeline-body">
-									<p>Mussum ipsum cacilds, vidis faiz elementum girarzis, nisi eros gostis.</p>
+								<img src="images/timeline2.jpg" style="width: 100%; height: auto;max-width: 120px;max-height: 100px;" />
 								</div>
 							</div>
 						</li>
@@ -94,11 +94,11 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 							<div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h4 style="font-size: 1.28rem;line-height: 15%;" class="timeline-title">Mussum ipsum cacilds 3</h4>
+									<h4 style="font-size: 1.28rem;line-height: 100%;" class="timeline-title"><b>Motor and other accessories ordered</b></h4>
 									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 1 day ago via Builder</small></p>
 								</div>
 								<div class="timeline-body">
-									<p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipisci. Mé faiz elementum girarzis, nisi eros gostis.</p>
+									<p>The builder has ordered the accessories required for the extra functionalities of the hand like LED screen and motor.</p>
 								</div>
 							</div>
 						</li>
@@ -106,11 +106,11 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 							<div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h4 style="font-size: 1.28rem;line-height: 15%;" class="timeline-title">Mussum ipsum cacilds 4</h4>
+									<h4 style="font-size: 1.28rem;line-height: 100%;" class="timeline-title"><b>Accessories received</b></h4>
 									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>10 hours ago via Builder</small></p>
 								</div>
 								<div class="timeline-body">
-									<p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
+									<p>Motor and LED screen are received by the builder</p>
 								</div>
 							</div>
 						</li>
@@ -118,11 +118,11 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 							<div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h4 style="font-size: 1.28rem;line-height: 15%;" class="timeline-title">Mussum ipsum cacilds 5</h4>
+									<h4 style="font-size: 1.28rem;line-height: 100%;" class="timeline-title"><b>Build process started</b></h4>
 									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 6 hours ago via Builder</small></p>
 								</div>
 								<div class="timeline-body">
-									<p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
+									<p>The builder has started the building process of the device and the device is expected to be built in 20 hours.</p>
 								</div>
 							</div>
 						</li>
