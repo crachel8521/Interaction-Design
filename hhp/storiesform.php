@@ -18,8 +18,8 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="row" style="width:60%">
           <div class="col s8 offset-s2">
 
-          <form action="stories.php" method="POST">
-
+          <form action="index.php" method="post">
+          <input type="hidden" name="action" value="add_story" />
 
           <div class="input-field">
             <input placeholder="Story Title" name="story_title" id="story_title" type="text" class="validate">
@@ -42,7 +42,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
         <div class="input-field">
               <br><br>
-              <a href="stories.html"><button type="submit" onclick="return validate()" value="submit" class="btn cyan darken-2">
+              <button type="submit" onclick="return validate()" value="submit" class="btn cyan darken-2">
   							Submit
   						</button>
             </div>

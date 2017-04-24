@@ -26,6 +26,18 @@ function getStory() {
   return $story;
 }
 
+function insertStory($story_title, $story_text) {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'INSERT into stories(story_title, user_id, story_text)
+   VALUES(:story_title, :user_id, :story_text )';
+  $statement = $db->prepare($query);
+     $statement->bindValue(':story_title', $story_title);
+  $statement->bindValue(':user_id', $_SESSION["user_id"]);
+  $statement->bindValue(':story_text', $story_text);
+  $statement->execute();
+  $statement->closeCursor();
+}
+
 function userExists($user_name) {
     $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT * FROM Accounts

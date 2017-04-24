@@ -8,7 +8,6 @@ if (session_status() == PHP_SESSION_NONE) {
  }
 
  $action = filter_input(INPUT_POST, 'action');
-
  if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if ($action == NULL) {
@@ -64,9 +63,10 @@ if (session_status() == PHP_SESSION_NONE) {
      createUser($user_name, $first_name, $last_name, $password, $email, $address, $age);
      include('login.php');
    } else if ($action == 'add_story'){
-
-
-
+      $story_title = filter_input(INPUT_POST, 'story_title');
+      $story_text = filter_input(INPUT_POST, 'story_text');
+      insertStory($story_title,$story_text);
+     include('stories.php');
    } else if ($action == 'logout'){
    		$_SESSION = array();
    		session_destroy();
