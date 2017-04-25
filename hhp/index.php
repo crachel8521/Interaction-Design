@@ -26,7 +26,7 @@ if (session_status() == PHP_SESSION_NONE) {
    } else if ($action == 'show_stories'){
      include('stories.php');
    } else if ($action == 'show_chat'){
-     include('chat.html');
+     include('chat.php');
    } else if ($action == 'login_user') {
      $user_name = filter_input(INPUT_POST, 'user_name');
      $password = filter_input(INPUT_POST, 'password');
