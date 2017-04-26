@@ -19,7 +19,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
 <?php foreach($stories as $story) : ?>
-        <div class="col s12">
+        <div class="col s12 m12">
           <div class="card">
             <div class="card-image">
               <img src="images/sample1.jpg">
