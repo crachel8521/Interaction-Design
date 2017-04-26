@@ -28,8 +28,8 @@ function getStory() {
 
 function insertStory($story_title, $story_text) {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
-  $query = 'INSERT into stories(story_title, user_id, story_text)
-   VALUES(:story_title, :user_id, :story_text )';
+  $query = 'INSERT into stories(story_title, user_id, story_text, date_posted)
+   VALUES(:story_title, :user_id, :story_text, Now())';
   $statement = $db->prepare($query);
      $statement->bindValue(':story_title', $story_title);
   $statement->bindValue(':user_id', $_SESSION["user_id"]);

@@ -5,7 +5,7 @@ require_once('model/db_functions.php');
 $mentorship_type = getMentorshipType($_SESSION['user_id']);
 ?>
 
-	
+
 <br><br>
 <div class="row">
         <div class="col s12 m6">
@@ -19,6 +19,8 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
                 <?php } else {?>
                   <a class="waves-effect waves-light btn purple">Enter Slack Username</a>
                   <?php } ?>
+									<br>
+									<a class="waves-effect waves-light btn purple">Settings</a>
             </div>
           </div>
         </div>
@@ -36,10 +38,12 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
                   $menteeID = getMenteeID($_SESSION['user_id']);
                   ?>
                   <p>Mentee Name: <?php echo getFirstName($menteeID); echo '&nbsp'; echo getLastName($menteeID);?></p>
+									<p>Slack Username: <?php echo getSlackName($menteeID); ?></p>
                   <?php } else {
                     $mentorID = getMentorID($_SESSION['user_id']);
                     ?>
                     <p>Mentor Name: <?php echo getFirstName($mentorID); echo '&nbsp'; echo getLastName($mentorID);?></p>
+										<p>Slack Username: <?php echo getSlackName($menteeID);?></p>
 <?php } ?>
                 <?php } else {?>
                   <a class="waves-effect waves-light btn purple">Become a Mentor/Mentee</a>
@@ -56,7 +60,6 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
                     <a class="waves-effect waves-light btn purple">Request a Device</a>
                     <a class="waves-effect waves-light btn purple">Build a Device</a>
                     <br><br>
-                    <span class="card-title">Project</span>
                   </div>
 					<div class="container timelineContainer">
     		<div class="row">
@@ -75,7 +78,7 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 								</div>
 								<div class="timeline-body">
 								<img src="images/timeline1.png" style="width: 100%; height: auto;max-width: 120px;max-height: 100px;" />
-								</div> 
+								</div>
 							</div>
 						</li>
 						<li class="timeline-item">
