@@ -3,7 +3,6 @@ include 'view/header.php';
 //require_once('model/admin_functions.php');
 //require_once('model/db_functions.php');
 //$events = getEvents();
-
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
@@ -17,6 +16,10 @@ if (session_status() == PHP_SESSION_NONE) {
       <h4 class="center">Login</h4>
 
   <br><br>
+  <?php
+  if(isset($login_error)){
+  echo $login_error;}
+?>
       <form action="index.php" method="post">
         <input type="hidden" name="action" value="login_user" />
         <!-- Email form -->

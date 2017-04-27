@@ -26,6 +26,17 @@ function getStory() {
   return $story;
 }
 
+function getBuildStatus() {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT * FROM builder_status 
+            ORDER BY date_posted';
+  $statement = $db->prepare($query);
+  $statement->execute();
+  $status = $statement->fetchAll();
+  $statement->closeCursor();
+  return $status;
+}
+
 function insertStory($story_title, $story_text) {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
   $query = 'INSERT into stories(story_title, user_id, story_text, date_posted)
