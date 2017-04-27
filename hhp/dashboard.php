@@ -72,7 +72,30 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 					<ul class="timeline timeline-horizontal">
 						<?php foreach($buildstatus as $status) : ?>
 						<li class="timeline-item">
-							<div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+						<?php if($status['status_id'] == 1)
+							{
+						echo '<div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>';
+							}
+					
+						 else if($status['status_id'] == 2)
+							{
+						echo '<div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>';
+							}
+						
+						 else if($status['status_id'] == 3)
+							{
+						echo '<div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>';
+							}
+						
+						 else if($status['status_id'] == 4)
+							{
+						echo '<div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>';
+							}
+							else 
+						   {
+						echo '<div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>';
+							}
+						?>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h4 style="font-size: 1.28rem;line-height: 100%;" class="timeline-title"><b><?php echo $status['status_desc']; ?></b></h4>
