@@ -67,10 +67,11 @@ if (session_status() == PHP_SESSION_NONE) {
   </script>
 
 
-  <div class="row" style="width:60%">
-    <div class="col s8 offset-s2">
+  <div class="row" style="width:100%">
+    <div class="col s0 m3 l4"></div>
 
-      <form action="index.php" method="POST">
+
+      <form action="index.php" method="POST" class="col s12 m6 l4">
         <input type="hidden" name="action" value="register_user">
 
         <div class="input-field">
@@ -119,7 +120,7 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
 
         <div class="input-field">
-          <br><br>
+          <br>
         <button type="submit" value="submit" class="btn cyan darken-2">
             Submit
           </button>
@@ -127,7 +128,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
       </form>
-    </div>
   </div>
 </div>
 

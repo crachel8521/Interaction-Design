@@ -7,14 +7,13 @@ $events = getEvents();
 
 <div class="row"></div>
 <br><br>
-  <div class="container">
+
 
 
 
     <div class="row">
-
 <?php foreach($events as $event) : ?>
-      <div class="col s12 m4 l4">
+      <div class="col s12 m8 l4">
         <div class="card small">
           <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" src="images/sample2.jpg">
@@ -34,7 +33,7 @@ $events = getEvents();
 
       </div>
     </div>
-</div>
+
 
 <div class="row" style="height:50px"></div>
 

@@ -14,12 +14,15 @@ if (session_status() == PHP_SESSION_NONE) {
 <br><br>
 <a class="waves-effect waves-light btn-large purple" style="align-self: center;" href="storiesform.php">Tell Your Story</a>
 <br>
-    <div class="containerSmall">
-           <div class="row">
+
+
 
 
 <?php foreach($stories as $story) : ?>
-        <div class="col s12 m12">
+  <div class="row">
+    <div class="col s3 m0 l0">
+    </div>
+        <div class="col s12 m6 l6">
           <div class="card">
             <div class="card-image">
               <img src="images/sample1.jpg">
@@ -42,10 +45,11 @@ if (session_status() == PHP_SESSION_NONE) {
             </div>
           </div>
         </div>
+        </div>
         <?php endforeach; ?>
 
-</div>
-</div>
+
+
 
 <div class="column" style="height:50px"></div>
 

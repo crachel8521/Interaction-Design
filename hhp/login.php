@@ -10,14 +10,15 @@ if (session_status() == PHP_SESSION_NONE) {
 
 ?>
 
-  <div class="row" style="width:20%">
+  <div class="row" style="width:100%">
     <!-- Box -->
     <div class="pi-box">
       <br><br>
       <h4 class="center">Login</h4>
 
   <br><br>
-      <form action="index.php" method="post">
+  <div class="col s0 m3 l5"></div>
+      <form action="index.php" method="post" class="col s12 m6 l2">
         <input type="hidden" name="action" value="login_user" />
         <!-- Email form -->
         <div class="form-group">
@@ -46,13 +47,14 @@ if (session_status() == PHP_SESSION_NONE) {
           <!-- </button> -->
         </p>
         <!-- End submit button -->
+        <p>
+          Don't have Account? <a href="#">Sign Up</a>
+        </p>
       </form>
     </div>
     <!-- End box -->
 
-    <p>
-      Don't have Account? <a href="#">Sign Up</a>
-    </p>
+
 
   </div>
   <!-- End row -->
