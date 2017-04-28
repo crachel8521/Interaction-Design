@@ -2,7 +2,14 @@
 include 'view/header.php';
 require_once('model/admin_functions.php');
 require_once('model/db_functions.php');
-$buildstatus = getBuildStatus();
+
+if ($_SESSION['user_type'] == 'builder'){
+  $buildstatus = getBuildStatus($_SESSION['user_type']);
+} else {
+  
+}
+
+
 $mentorship_type = getMentorshipType($_SESSION['user_id']);
 ?>
 
@@ -76,22 +83,22 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 							{
 						echo '<div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>';
 							}
-					
+
 						 else if($status['status_id'] == 2)
 							{
 						echo '<div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>';
 							}
-						
+
 						 else if($status['status_id'] == 3)
 							{
 						echo '<div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>';
 							}
-						
+
 						 else if($status['status_id'] == 4)
 							{
 						echo '<div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>';
 							}
-							else 
+							else
 						   {
 						echo '<div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>';
 							}
@@ -102,7 +109,7 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i><?php echo $status['date_posted']; ?></small></p>
 								</div>
 								<div class="timeline-body">
-								<img src="images/timeline1.png" style="width: 100%; height: auto;max-width: 120px;max-height: 100px;" /> 
+								<img src="images/timeline1.png" style="width: 100%; height: auto;max-width: 120px;max-height: 100px;" />
 								</div>
 							</div>
 						</li>
@@ -157,6 +164,32 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 							</div>
 						</li> -->
 				</div>
+
+
+
+        <?php foreach($buildstatus as $status) : ?>
+          <div class="row" style="width:100%">
+            <div class="col s3 m0 l0">
+            </div>
+                <div class="col s12 m6 l6">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="images/sample1.jpg">
+                    </div>
+                    <div class="card-content">
+                      <p style="font-size:.75em"></p>
+                      <h6><?php echo $status['builder_name']; ?></h6>
+                      <p>Date: <?php echo $status['date_posted']; ?></p>
+                      <p><?php echo $status['status_desc']; ?></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <?php endforeach; ?>
+
+
+
+
 				</div>
 			</div>
 		</div>

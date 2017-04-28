@@ -33,7 +33,7 @@ if (session_status() == PHP_SESSION_NONE) {
      $user_name = filter_input(INPUT_POST, 'user_name');
      $password = filter_input(INPUT_POST, 'password');
      $user_id = getUserID($user_name);
-     $usertype = getUserType($user_id);
+     $user_type = getUserType($user_id);
      $first_name = getFirstName($user_id);
      $last_name = getLastName($user_id);
      $user_sname = getSlackName($user_id);
@@ -49,6 +49,7 @@ if (session_status() == PHP_SESSION_NONE) {
           $_SESSION['first_name'] = $first_name;
           $_SESSION['last_name'] = $last_name;
           $_SESSION['user_sname'] = $user_sname;
+          $_SESSSION['user_type'] = $user_type;
           //header("Location: .");
           //die();
           include('dashboard.php');

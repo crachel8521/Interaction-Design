@@ -32,7 +32,7 @@ $events = getEvents();
 
 
       </div>
-    </div>
+
 
 
 <div class="row" style="height:50px"></div>
