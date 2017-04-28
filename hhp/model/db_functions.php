@@ -49,6 +49,18 @@ function getBuildStatusByRecipient($recipient_user_id) {
   return $status;
 }
 
+function insertStatus($status_desc) {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'INSERT into builder_status(builder_user_id, builder_name, status_desc, date_posted)
+   VALUES(:builder_user_id, :builder_name, :status_desc, Now())';
+  $statement = $db->prepare($query);  
+     $statement->bindValue(':builder_user_id', $_SESSION["user_id"]);
+  $statement->bindValue(':builder_name', $_SESSION["first_name"]);
+  $statement->bindValue(':status_desc', $status_desc);
+  $statement->execute();
+  $statement->closeCursor();
+}
+
 function insertStory($story_title, $story_text) {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
   $query = 'INSERT into stories(story_title, user_id, story_text, date_posted)

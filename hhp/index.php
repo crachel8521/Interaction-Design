@@ -25,6 +25,8 @@ if (session_status() == PHP_SESSION_NONE) {
      include('events.php');
    } else if ($action == 'show_storiesform'){
      include('storiesform.php');
+   } else if ($action == 'show_statusform'){
+     include('statusform.php');
    } else if ($action == 'show_stories'){
      include('stories.php');
    } else if ($action == 'show_chat'){
@@ -78,6 +80,12 @@ if (session_status() == PHP_SESSION_NONE) {
       insertStory($story_title,$story_text);
      $action = '';
      header('Location: .?action=show_stories');
+     //include('stories.php');
+   } else if ($action == 'add_status'){
+      $status_desc = filter_input(INPUT_POST, 'status_desc');
+       insertStatus($status_desc);
+     $action = '';
+     header('Location: .?action=show_dashboard');
      //include('stories.php');
    } else if ($action == 'logout'){
    		$_SESSION = array();

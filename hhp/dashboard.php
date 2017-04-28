@@ -65,7 +65,7 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
                   <div class="card-content white-text" style=" height:140px;">
                     <span class="card-title">Build</span>
                     <a class="waves-effect waves-light btn purple">Request a Device</a>
-                    <a class="waves-effect waves-light btn purple">Build a Device</a>
+                    <a class="waves-effect waves-light btn purple" href=".?action=show_statusform">Add Build Status</a>
                     <br><br>
                   </div>
 					<div class="container timelineContainer">
