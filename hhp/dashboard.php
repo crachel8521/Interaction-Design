@@ -50,7 +50,7 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
                     $mentorID = getMentorID($_SESSION['user_id']);
                     ?>
                     <p>Mentor Name: <?php echo getFirstName($mentorID); echo '&nbsp'; echo getLastName($mentorID);?></p>
-										<p>Slack Username: <?php echo getSlackName($menteeID);?></p>
+										<p>Slack Username: <?php echo getSlackName($mentorID);?></p>
 <?php } ?>
                 <?php } else {?>
                   <a class="waves-effect waves-light btn purple">Become a Mentor/Mentee</a>

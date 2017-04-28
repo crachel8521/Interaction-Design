@@ -17,7 +17,7 @@ function getEvents() {
 function getStory() {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
   $query = 'SELECT * FROM stories
-  inner join accounts on stories.user_id= accounts.user_id 
+  inner join accounts on stories.user_id= accounts.user_id
             ORDER BY date_posted';
   $statement = $db->prepare($query);
   $statement->execute();
@@ -26,11 +26,23 @@ function getStory() {
   return $story;
 }
 
-function getBuildStatus() {
+function getBuildStatus($builder_user_id) {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
-  $query = 'SELECT * FROM builder_status 
+  $query = 'SELECT * FROM Builder_Status WHERE builder_user_id = :builder_user_id
             ORDER BY date_posted';
   $statement = $db->prepare($query);
+  $statement->execute();
+  $status = $statement->fetchAll();
+  $statement->closeCursor();
+  return $status;
+}
+
+function getBuildStatusByRecipient($recipient_user_id) {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT * FROM builder_status WHERE recipient_user_id = :recipient_user_id
+            ORDER BY date_posted';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':recipient_user_id', $recipient_user_id );
   $statement->execute();
   $status = $statement->fetchAll();
   $statement->closeCursor();
@@ -42,7 +54,7 @@ function insertStory($story_title, $story_text) {
   $query = 'INSERT into stories(story_title, user_id, story_text, date_posted)
    VALUES(:story_title, :user_id, :story_text, Now())';
   $statement = $db->prepare($query);
-     $statement->bindValue(':story_title', $story_title);
+  $statement->bindValue(':story_title', $story_title);
   $statement->bindValue(':user_id', $_SESSION["user_id"]);
   $statement->bindValue(':story_text', $story_text);
   $statement->execute();

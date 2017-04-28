@@ -44,12 +44,11 @@ if (session_status() == PHP_SESSION_NONE) {
           include('login.php');
         } else {
           $_SESSION['user_name'] = $user_name;
-          $_SESSION['usertype'] = $usertype;
           $_SESSION['user_id'] = getUserID($user_name);
           $_SESSION['first_name'] = $first_name;
           $_SESSION['last_name'] = $last_name;
           $_SESSION['user_sname'] = $user_sname;
-          $_SESSSION['user_type'] = $user_type;
+          $_SESSION['user_type'] = $user_type;
           //header("Location: .");
           //die();
           include('dashboard.php');
