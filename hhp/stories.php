@@ -12,20 +12,14 @@ if (session_status() == PHP_SESSION_NONE) {
 
   <div class="column"></div>
 <br><br>
-<<<<<<< HEAD
-<a class="waves-effect waves-light btn-large purple" style="align-self: center;" href="storiesform.php">Tell Your Story</a>
+
+<a class="waves-effect waves-light btn-large purple darken-1" style="align-self: center;" href=".?action=show_storiesform">Tell Your Story</a>
+
 <br>
 
 
-=======
-<a class="waves-effect waves-light btn-large purple darken-1" style="align-self: center;" href=".?action=show_storiesform">Tell Your Story</a>    
- <div class="containerSmall">
-           <div class="row">
->>>>>>> origin/master
-
-
 <?php foreach($stories as $story) : ?>
-  <div class="row">
+  <div class="row" style="width:100%">
     <div class="col s3 m0 l0">
     </div>
         <div class="col s12 m6 l6">
@@ -52,7 +46,7 @@ if (session_status() == PHP_SESSION_NONE) {
             </div>
           </div>
         </div>
-        </div>
+      </div>
         <?php endforeach; ?>
 
 
