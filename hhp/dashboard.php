@@ -6,9 +6,8 @@ require_once('model/db_functions.php');
 if ($_SESSION['user_type'] == 'builder'){
   $buildstatus = getBuildStatus($_SESSION['user_type']);
 } else {
-  
+  $buildstatus = getBuildStatusByRecipient($_SESSION['user_type']);
 }
-
 
 $mentorship_type = getMentorshipType($_SESSION['user_id']);
 ?>
