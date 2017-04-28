@@ -23,6 +23,8 @@ if (session_status() == PHP_SESSION_NONE) {
      include('dashboard.php');
    } else if ($action == 'show_events'){
      include('events.php');
+   } else if ($action == 'show_storiesform'){
+     include('storiesform.php');
    } else if ($action == 'show_stories'){
      include('stories.php');
    } else if ($action == 'show_chat'){
@@ -38,7 +40,7 @@ if (session_status() == PHP_SESSION_NONE) {
      $isTrue = userExists($user_name);
      $isPassword = checkPassword($password);
      if($isTrue == false || $isPassword == false){
-          $errors[] = "Invalid user name or password.";
+          $login_error = "Invalid user name or password.";
           include('login.php');
         } else {
           $_SESSION['user_name'] = $user_name;
@@ -57,16 +59,26 @@ if (session_status() == PHP_SESSION_NONE) {
      $first_name = filter_input(INPUT_POST, 'first_name');
      $last_name = filter_input(INPUT_POST, 'last_name');
      $password = filter_input(INPUT_POST, 'password');
+     $password2 = filter_input(INPUT_POST, 'password2');
      $email = filter_input(INPUT_POST, 'email');
      $address = filter_input(INPUT_POST, 'address');
      $age = filter_input(INPUT_POST, 'age');
+     if ($password != $password2)
+      {
+      $passwordmatch_error = "Password does not match";
+      include('form.php');
+     }
+     else{
      createUser($user_name, $first_name, $last_name, $password, $email, $address, $age);
      include('login.php');
+   }
    } else if ($action == 'add_story'){
       $story_title = filter_input(INPUT_POST, 'story_title');
       $story_text = filter_input(INPUT_POST, 'story_text');
       insertStory($story_title,$story_text);
-     include('stories.php');
+     $action = '';
+     header('Location: .?action=show_stories');
+     //include('stories.php');
    } else if ($action == 'logout'){
    		$_SESSION = array();
    		session_destroy();

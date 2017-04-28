@@ -2,6 +2,7 @@
 include 'view/header.php';
 require_once('model/admin_functions.php');
 require_once('model/db_functions.php');
+$buildstatus = getBuildStatus();
 $mentorship_type = getMentorshipType($_SESSION['user_id']);
 ?>
 
@@ -69,19 +70,45 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 					</div>
 					<div style="display:inline-block;width:100%;overflow-y:auto;">
 					<ul class="timeline timeline-horizontal">
+						<?php foreach($buildstatus as $status) : ?>
 						<li class="timeline-item">
-							<div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
+						<?php if($status['status_id'] == 1)
+							{
+						echo '<div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>';
+							}
+					
+						 else if($status['status_id'] == 2)
+							{
+						echo '<div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>';
+							}
+						
+						 else if($status['status_id'] == 3)
+							{
+						echo '<div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>';
+							}
+						
+						 else if($status['status_id'] == 4)
+							{
+						echo '<div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>';
+							}
+							else 
+						   {
+						echo '<div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>';
+							}
+						?>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h4 style="font-size: 1.28rem;line-height: 100%;" class="timeline-title"><b>Hand measurements were taken</b></h4>
-									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 5 days ago via Builder</small></p>
+									<h4 style="font-size: 1.28rem;line-height: 100%;" class="timeline-title"><b><?php echo $status['status_desc']; ?></b></h4>
+									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i><?php echo $status['date_posted']; ?></small></p>
 								</div>
 								<div class="timeline-body">
-								<img src="images/timeline1.png" style="width: 100%; height: auto;max-width: 120px;max-height: 100px;" />
+								<img src="images/timeline1.png" style="width: 100%; height: auto;max-width: 120px;max-height: 100px;" /> 
 								</div>
 							</div>
 						</li>
-						<li class="timeline-item">
+					 <?php endforeach; ?>
+						</ul>
+<!--						<li class="timeline-item">
 							<div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
@@ -128,8 +155,7 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 									<p>The builder has started the building process of the device and the device is expected to be built in 20 hours.</p>
 								</div>
 							</div>
-						</li>
-					</ul>
+						</li> -->
 				</div>
 				</div>
 			</div>

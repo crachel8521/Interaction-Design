@@ -34,14 +34,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
         <div class="input-field">
-          <input placeholder="Username" name="username" id="username" type="text" class="validate">
-          <label for="username">Username</label>
-        </div>
-
-        <br><br>
-
-        <div class="input-field">
-              <br><br>
               <button type="submit" onclick="return validate()" value="submit" class="btn cyan darken-2">
   							Submit
   						</button>

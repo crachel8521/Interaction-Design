@@ -3,7 +3,6 @@ include 'view/header.php';
 //require_once('model/admin_functions.php');
 //require_once('model/db_functions.php');
 //$events = getEvents();
-
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
@@ -19,6 +18,11 @@ if (session_status() == PHP_SESSION_NONE) {
   <br><br>
   <div class="col s0 m3 l5"></div>
       <form action="index.php" method="post" class="col s12 m6 l2">
+  <?php
+  if(isset($login_error)){
+  echo $login_error;}
+?>
+
         <input type="hidden" name="action" value="login_user" />
         <!-- Email form -->
         <div class="form-group">

@@ -66,46 +66,53 @@ if (session_status() == PHP_SESSION_NONE) {
   }
   </script>
 
+ 
+
 
   <div class="row" style="width:100%">
     <div class="col s0 m3 l4"></div>
 
 
       <form action="index.php" method="POST" class="col s12 m6 l4">
+
+       <?php
+        if(isset($passwordmatch_error)){
+        echo $passwordmatch_error;}
+        ?>
         <input type="hidden" name="action" value="register_user">
 
         <div class="input-field">
-          <input placeholder="First Name" name="first_name" id="first_name" type="text" class="validate">
+          <input placeholder="First Name" name="first_name" id="first_name" type="text" class="validate"  required>
           <label for="first_name">First Name</label>
         </div>
 
 
         <div class="input-field">
-          <input placeholder="Last Name" name="last_name" id="last_name" type="text" class="validate">
+          <input placeholder="Last Name" name="last_name" id="last_name" type="text" class="validate"  required>
           <label for="last_name">Last Name</label>
         </div>
 
 
         <div class="input-field">
           <input placeholder="Username" name="user_name" id="username" type="text" class="validate">
-          <label for="username">Username</label>
+          <label for="username"  required>Username</label>
         </div>
 
 
         <div class="input-field">
           <input placeholder="Password" name="password" id="password" type="password" class="validate">
-          <label for="password">Password</label>
+          <label for="password"  required>Password</label>
         </div>
 
 
         <div class="input-field">
-          <input placeholder="Confirm Password" name="password2" id="password2" type="password" class="validate">
+          <input placeholder="Confirm Password" name="password2" id="password2" type="password" class="validate"  required>
           <label for="password">Confirm Password</label>
         </div>
 
         <div class="input-field">
           <input placeholder="Email" name="email" id="email" type="email" class="validate">
-          <label for="email">Email</label>
+          <label for="email"  required>Email</label>
         </div>
 
         <div class="input-field">
@@ -116,7 +123,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
         <div class="input-field">
           <input placeholder="Age" name="age" id="age" type="number" class="validate">
-          <label for="last_name">Age</label>
+          <label for="last_name"  required>Age</label>
         </div>
 
         <div class="input-field">
