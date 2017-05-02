@@ -4,9 +4,9 @@ require_once('model/admin_functions.php');
 require_once('model/db_functions.php');
 
 if ($_SESSION['user_type'] == 'builder'){
-  $buildstatus = getBuildStatus($_SESSION['user_type']);
+  $buildstatus = getBuildStatus($_SESSION['user_id']);
 } else {
-  $buildstatus = getBuildStatusByRecipient($_SESSION['user_type']);
+  $buildstatus = getBuildStatusByRecipient($_SESSION['user_id']);
 }
 
 $mentorship_type = getMentorshipType($_SESSION['user_id']);

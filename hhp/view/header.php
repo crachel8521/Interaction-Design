@@ -27,12 +27,12 @@
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <?php
-          if(!isset($_SESSION['usertype'])){ ?>
+          if(!isset($_SESSION['user_type'])){ ?>
             <li><a href=".?action=show_login">Login</a></li>
             <?php } ?>
             <?php
-            if(isset($_SESSION['usertype'])){
-              if($_SESSION['usertype'] == 'user')
+            if(isset($_SESSION['user_type'])){
+              if($_SESSION['user_type'] == 'user')
               {?>
                 <li><a href=".?action=show_dashboard">Dashboard</a></li>
                 <li><a href=".?action=show_events">Events</a></li>
@@ -41,7 +41,7 @@
                 <li><a href=".?action=logout">Logout</a></li>
                 <?php } ?>
                 <?php
-                if($_SESSION['usertype'] == 'admin')
+                if($_SESSION['user_type'] == 'admin')
                 {?>
                   <li>
                     <a href=".?action=show_admin">Admin</a>
@@ -51,12 +51,12 @@
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                   <?php
-                  if(!isset($_SESSION['usertype'])){ ?>
+                  if(!isset($_SESSION['user_type'])){ ?>
                     <li><a href=".?action=show_login">Login</a></li>
                     <?php } ?>
                     <?php
-                    if(isset($_SESSION['usertype'])){
-                      if($_SESSION['usertype'] == 'user')
+                    if(isset($_SESSION['user_type'])){
+                      if($_SESSION['user_type'] == 'user')
                       {?>
                         <li><a href=".?action=show_dashboard">Dashboard</a></li>
                         <li><a href=".?action=show_events">Events</a></li>
@@ -65,7 +65,7 @@
                         <li><a href=".?action=logout">Logout</a></li>
                         <?php } ?>
                         <?php
-                        if($_SESSION['usertype'] == 'admin')
+                        if($_SESSION['user_type'] == 'admin')
                         {?>
                           <li>
                             <a href=".?action=show_admin">Admin</a>
