@@ -73,6 +73,33 @@ function insertStory($story_title, $story_text) {
   $statement->closeCursor();
 }
 
+function insertRecipientInfo($recipient_firstname,$recipient_lastname,$hand_measurement,$filler_name,$contact_info){
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'INSERT into Recipient_Info(recipient_id,recipient_firstname, recipient_lastname, hand_measurement, filler_name , contact_info, date_posted)
+   VALUES(:recipient_id, :recipient_firstname, :recipient_lastname, :hand_measurement, :filler_name, :contact_info, Now())';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':recipient_id', $_SESSION["user_id"]);
+  $statement->bindValue(':recipient_firstname', $recipient_firstname);
+  $statement->bindValue(':recipient_lastname', $recipient_lastname);
+  $statement->bindValue(':hand_measurement', $hand_measurement);
+  $statement->bindValue(':filler_name', $filler_name);
+  $statement->bindValue(':contact_info', $contact_info);
+  $statement->execute();
+  $statement->closeCursor();
+}
+
+function getRecipientInfo() {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT * FROM Recipient_Info WHERE recipient_id = :recipient_id 
+            ORDER BY date_posted';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':recipient_id', $_SESSION["user_id"]);
+  $statement->execute();
+  $recipient = $statement->fetchAll();
+  $statement->closeCursor();
+  return $recipient;
+}
+
 function userExists($user_name) {
     $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
     $query = 'SELECT * FROM Accounts

@@ -27,6 +27,8 @@ if (session_status() == PHP_SESSION_NONE) {
      include('storiesform.php');
    } else if ($action == 'show_statusform'){
      include('statusform.php');
+   } else if ($action == 'show_recipientform'){
+     include('recipientform.php');
    } else if ($action == 'show_stories'){
      include('stories.php');
    } else if ($action == 'show_chat'){
@@ -84,6 +86,16 @@ if (session_status() == PHP_SESSION_NONE) {
    } else if ($action == 'add_status'){
       $status_desc = filter_input(INPUT_POST, 'status_desc');
        insertStatus($status_desc);
+     $action = '';
+     header('Location: .?action=show_dashboard');
+     //include('stories.php');
+   } else if ($action == 'add_recipientinfo'){
+      $recipient_firstname = filter_input(INPUT_POST, 'recipient_firstname');
+      $recipient_lastname = filter_input(INPUT_POST, 'recipient_lastname');
+      $hand_measurement = filter_input(INPUT_POST, 'hand_measurement');
+      $filler_name = filter_input(INPUT_POST, 'filler_name');
+      $contact_info = filter_input(INPUT_POST, 'contact_info');
+       insertRecipientInfo($recipient_firstname,$recipient_lastname,$hand_measurement,$filler_name,$contact_info);
      $action = '';
      header('Location: .?action=show_dashboard');
      //include('stories.php');

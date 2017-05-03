@@ -106,3 +106,22 @@ INSERT INTO Builder_Status(builder_user_id, recipient_user_id, builder_name, sta
 (4, 2,'Steven Smith','','Device building is started', now())
 ;
 select * from builder_status;
+
+DROP TABLE IF EXISTS Recipient_Info;
+CREATE TABLE Recipient_Info
+(
+  recipient_id int,
+  recipient_firstname varchar(100) not null,
+  recipient_lastname varchar(100) not null,
+  hand_measurement varchar(500) not null,
+  filler_name varchar(100) not null,
+  contact_info varchar(100) not null,
+  date_posted datetime not null,
+  CONSTRAINT FK_RecipientInfo FOREIGN KEY (recipient_id) REFERENCES Accounts(user_id)
+);
+
+INSERT INTO Recipient_Info(recipient_id,recipient_firstname, recipient_lastname, hand_measurement, filler_name , contact_info, date_posted) VALUES 
+(2,'Elmer','Jones','Hand measurements are provided', 'Robert Jones', 9802586459, now())
+;
+select * from Recipient_Info;
+delete from Recipient_Info where recipient_id=2;

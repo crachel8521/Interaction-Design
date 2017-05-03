@@ -9,6 +9,8 @@ if ($_SESSION['user_type'] == 'builder'){
   $buildstatus = getBuildStatusByRecipient($_SESSION['user_id']);
 }
 
+$recipients = getRecipientInfo();
+
 $mentorship_type = getMentorshipType($_SESSION['user_id']);
 ?>
 
@@ -64,7 +66,7 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
                 <div class="card cyan darken-1" >
                   <div class="card-content white-text" style=" height:140px;">
                     <span class="card-title">Build</span>
-                    <a class="waves-effect waves-light btn purple">Request a Device</a>
+                    <a class="waves-effect waves-light btn purple" href=".?action=show_recipientform">Request a Device</a>
                     <a class="waves-effect waves-light btn purple" href=".?action=show_statusform">Add Build Status</a>
                     <br><br>
                   </div>
@@ -76,6 +78,22 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 					</div>
 					<div style="display:inline-block;width:100%;overflow-y:auto;">
 					<ul class="timeline timeline-horizontal">
+						<?php foreach($recipients as $recipient) : ?>
+						<li class="timeline-item">
+						<div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>
+						<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4 style="font-size: 1.28rem;line-height: 100%;" class="timeline-title"><b><?php echo $recipient['recipient_firstname']; ?>'s Device is requested</b></h4>
+									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Date: <?php echo $recipient['date_posted']; ?></small></p>
+									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i><?php echo $recipient['hand_measurement']; ?></small></p>
+								</div>
+								<div class="timeline-body">
+								<img src="images/timeline1.png" style="width: 100%; height: auto;max-width: 120px;max-height: 100px;" />
+								</div>
+							</div>
+						</li>
+					 <?php endforeach; ?>
+
 						<?php foreach($buildstatus as $status) : ?>
 						<li class="timeline-item">
 						<?php if($status['status_id'] == 1)
@@ -105,7 +123,7 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h4 style="font-size: 1.28rem;line-height: 100%;" class="timeline-title"><b><?php echo $status['status_desc']; ?></b></h4>
-									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i><?php echo $status['date_posted']; ?></small></p>
+									<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Date: <?php echo $status['date_posted']; ?></small></p>
 								</div>
 								<div class="timeline-body">
 								<img src="images/timeline1.png" style="width: 100%; height: auto;max-width: 120px;max-height: 100px;" />
@@ -165,6 +183,25 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 				</div>
 
 
+<?php foreach($recipients as $recipient) : ?>
+	      <div class="row" style="width:100%">
+            <div class="col s3 m0 l0">
+            </div>
+                <div class="col s12 m6 l6">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="images/sample1.jpg">
+                    </div>
+                    <div class="card-content">
+                      <p style="font-size:.75em"></p>
+                      <h6><?php echo $recipient['recipient_firstname']; ?>'s Device is requested</h6>
+                      <p>Date: <?php echo $recipient['date_posted']; ?></p>
+                      <p><?php echo $recipient['hand_measurement']; ?></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <?php endforeach; ?>
 
         <?php foreach($buildstatus as $status) : ?>
           <div class="row" style="width:100%">
