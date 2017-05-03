@@ -33,6 +33,9 @@ a {
 .flow-text {
   font-size: 3em; }
 
+.center {
+  text-align: center; }
+
 #chatButton {
   width: 200px;
   display: block;
@@ -41,6 +44,5 @@ a {
 #textCenter {
   text-align: center;
   margin: auto; }
-
 
 /*# sourceMappingURL=custom.css.map */
