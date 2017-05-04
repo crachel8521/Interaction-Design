@@ -12,61 +12,17 @@ if ($_SESSION['user_type'] == 'builder'){
 $recipients = getRecipientInfo();
 
 $mentorship_type = getMentorshipType($_SESSION['user_id']);
+
 ?>
 
 
 <br><br>
 <div class="row">
-        <div class="col s12 m6">
-          <div class="card cyan">
-            <div class="card-content white-text">
-              <span class="card-title">Welcome <?php echo $_SESSION['first_name']; echo '&nbsp'; echo $_SESSION['last_name']; ?></span>
-              <?php
-              if(isset($_SESSION['user_sname']))
-              {?>
-                <p>Slack Username: <?php echo $_SESSION['user_sname']; ?></p>
-                <?php } else {?>
-                  <a class="waves-effect waves-light btn purple">Enter Slack Username</a>
-                  <?php } ?>
-									<br>
-									<a class="waves-effect waves-light btn purple">Settings</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m6">
-          <div class="card cyan darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Mentoring</span>
-              <?php
-              if(isset($mentorship_type))
-              {?>
-
-                <?php
-                if($mentorship_type == 'mentor')
-                {
-                  $menteeID = getMenteeID($_SESSION['user_id']);
-                  ?>
-                  <p>Mentee Name: <?php echo getFirstName($menteeID); echo '&nbsp'; echo getLastName($menteeID);?></p>
-									<p>Slack Username: <?php echo getSlackName($menteeID); ?></p>
-                  <?php } else {
-                    $mentorID = getMentorID($_SESSION['user_id']);
-                    ?>
-                    <p>Mentor Name: <?php echo getFirstName($mentorID); echo '&nbsp'; echo getLastName($mentorID);?></p>
-										<p>Slack Username: <?php echo getSlackName($mentorID);?></p>
-<?php } ?>
-                <?php } else {?>
-                  <a class="waves-effect waves-light btn purple">Become a Mentor/Mentee</a>
-                  <?php } ?>
-            </div>
-          </div>
-        </div>
 
 
               <div class="col s12">
-                <div class="card cyan darken-1" >
-                  <div class="card-content white-text" style=" height:140px;">
-                    <span class="card-title">Build</span>
-                    <a class="waves-effect waves-light btn purple" href=".?action=show_recipientform">Request a Device</a>
+
+                    <h5>Build</h5>
                     <a class="waves-effect waves-light btn purple" href=".?action=show_statusform">Add Build Status</a>
                     <br><br>
                   </div>
@@ -226,8 +182,7 @@ $mentorship_type = getMentorshipType($_SESSION['user_id']);
 
 
 
-				</div>
-			</div>
+
 		</div>
                 </div>
               </div>

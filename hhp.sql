@@ -18,15 +18,16 @@ email       varchar(35) not null,
 address     varchar(155),   
 age     	int not null,   
 user_type   varchar(35), 
+build_request boolean not null default 0,
 CONSTRAINT PK_Person PRIMARY KEY (user_id,user_name)
 );
 
 
 INSERT INTO Accounts VALUES
-(1, 'SCindy','hhp','Smith','Cindy', 'Cindy07','cindy@uncc.edu', '1234, address comes here',21,'user'), 
-(2, 'JElmer','hhp','Jones','Elmer', 'Elmar17','jones@uncc.edu', '1234, address comes here',7,'user'), 
-(3, 'SRalph','hhp','Simonian','Ralph', ' ','ralph@uncc.edu', '1234, address comes here',14,'user'),
-(4, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'builder')
+(1, 'SCindy','hhp','Smith','Cindy', 'Cindy07','cindy@uncc.edu', '1234, address comes here',21,'user', 0), 
+(2, 'JElmer','hhp','Jones','Elmer', 'Elmar17','jones@uncc.edu', '1234, address comes here',7,'user', 0), 
+(3, 'SRalph','hhp','Simonian','Ralph', ' ','ralph@uncc.edu', '1234, address comes here',14,'user', 0),
+(4, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'builder', 0)
 ;
 
 DROP TABLE IF EXISTS Events;

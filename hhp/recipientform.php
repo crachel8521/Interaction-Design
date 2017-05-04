@@ -46,7 +46,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
         <div class="input-field">
-              <button type="submit" onclick="return validate()" value="submit" class="btn cyan darken-2">
+              <button type="submit" onclick="return validate()" value="submit" class="btn blue lighten-1">
   							Request
   						</button>
             </div>

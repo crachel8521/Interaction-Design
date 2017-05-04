@@ -13,7 +13,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <div class="column"></div>
 <br><br>
 
-<a class="waves-effect waves-light btn-large purple darken-1" style="align-self: center;" href=".?action=show_storiesform">Tell Your Story</a>
+<a class="waves-effect waves-light btn-large blue lighten-1" style="align-self: center;" href=".?action=show_storiesform">Tell Your Story</a>
 
 <br>
 

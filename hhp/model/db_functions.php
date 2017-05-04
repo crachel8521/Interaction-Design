@@ -14,6 +14,17 @@ function getEvents() {
   return $events;
 }
 
+function getBuilders() {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT * FROM Builders
+            ORDER BY user_id';
+  $statement = $db->prepare($query);
+  $statement->execute();
+  $builders = $statement->fetchAll();
+  $statement->closeCursor();
+  return $builders;
+}
+
 function getStory() {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
   $query = 'SELECT * FROM stories
@@ -24,17 +35,6 @@ function getStory() {
   $story = $statement->fetchAll();
   $statement->closeCursor();
   return $story;
-}
-
-function getBuildStatus($builder_user_id) {
-  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
-  $query = 'SELECT * FROM Builder_Status WHERE builder_user_id = :builder_user_id
-            ORDER BY date_posted';
-  $statement = $db->prepare($query);
-  $statement->execute();
-  $status = $statement->fetchAll();
-  $statement->closeCursor();
-  return $status;
 }
 
 function getBuildStatusByRecipient($recipient_user_id) {
@@ -53,7 +53,7 @@ function insertStatus($status_desc) {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
   $query = 'INSERT into builder_status(builder_user_id, builder_name, status_desc, date_posted)
    VALUES(:builder_user_id, :builder_name, :status_desc, Now())';
-  $statement = $db->prepare($query);  
+  $statement = $db->prepare($query);
      $statement->bindValue(':builder_user_id', $_SESSION["user_id"]);
   $statement->bindValue(':builder_name', $_SESSION["first_name"]);
   $statement->bindValue(':status_desc', $status_desc);
@@ -88,9 +88,21 @@ function insertRecipientInfo($recipient_firstname,$recipient_lastname,$hand_meas
   $statement->closeCursor();
 }
 
+function updateBuildRequest($user_id, $build_request) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+    $query = 'UPDATE Accounts
+              SET build_request = :build_request
+              WHERE user_id = :user_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':build_request', $build_request);
+    $statement->bindValue(':user_id', $user_id);
+    $statement->execute();
+    $statement->closeCursor();
+}
+
 function getRecipientInfo() {
   $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
-  $query = 'SELECT * FROM Recipient_Info WHERE recipient_id = :recipient_id 
+  $query = 'SELECT * FROM Recipient_Info WHERE recipient_id = :recipient_id
             ORDER BY date_posted';
   $statement = $db->prepare($query);
   $statement->bindValue(':recipient_id', $_SESSION["user_id"]);
@@ -246,6 +258,32 @@ function getEmail($user_id) {
     $email = $results['email'];
     $statement->closeCursor();
     return $email;
+}
+
+function getUserName($user_id) {
+    $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+    $query = 'SELECT user_name FROM Accounts
+              WHERE user_id = :user_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':user_id', $user_id);
+    $statement->execute();
+    $results = $statement->fetch();
+    $user_name = $results['user_name'];
+    $statement->closeCursor();
+    return $user_name;
+}
+
+function getBuildRequest($user_id) {
+  $db = new PDO("mysql:host=localhost;dbname=hhp","root","");
+  $query = 'SELECT build_request FROM Accounts
+            WHERE user_id = :user_id';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':user_id', $user_id);
+  $statement->execute();
+  $results = $statement->fetch();
+  $build_request = $results['build_request'];
+  $statement->closeCursor();
+  return $build_request;
 }
 
 function getMentorshipType($user_id) {

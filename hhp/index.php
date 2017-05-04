@@ -33,6 +33,10 @@ if (session_status() == PHP_SESSION_NONE) {
      include('stories.php');
    } else if ($action == 'show_chat'){
      include('chat.php');
+   } else if ($action == 'show_buildstatus'){
+     include('buildstatus.php');
+   } else if ($action == 'show_builders'){
+     include('builders.php');
    } else if ($action == 'login_user') {
      $user_name = filter_input(INPUT_POST, 'user_name');
      $password = filter_input(INPUT_POST, 'password');
@@ -43,6 +47,7 @@ if (session_status() == PHP_SESSION_NONE) {
      $user_sname = getSlackName($user_id);
      $isTrue = userExists($user_name);
      $isPassword = checkPassword($password);
+     $build_request = getBuildRequest($user_id);
      if($isTrue == false || $isPassword == false){
           $login_error = "Invalid user name or password.";
           include('login.php');
@@ -53,9 +58,10 @@ if (session_status() == PHP_SESSION_NONE) {
           $_SESSION['last_name'] = $last_name;
           $_SESSION['user_sname'] = $user_sname;
           $_SESSION['user_type'] = $user_type;
+          $_SESSION['build_request'] = $build_request;
           //header("Location: .");
           //die();
-          include('dashboard.php');
+          include('builders.php');
           //include('dashboard.php');
         }
    } else if ($action == 'register_user'){
@@ -87,7 +93,7 @@ if (session_status() == PHP_SESSION_NONE) {
       $status_desc = filter_input(INPUT_POST, 'status_desc');
        insertStatus($status_desc);
      $action = '';
-     header('Location: .?action=show_dashboard');
+     header('Location: .?action=show_buildstatus');
      //include('stories.php');
    } else if ($action == 'add_recipientinfo'){
       $recipient_firstname = filter_input(INPUT_POST, 'recipient_firstname');
@@ -95,9 +101,11 @@ if (session_status() == PHP_SESSION_NONE) {
       $hand_measurement = filter_input(INPUT_POST, 'hand_measurement');
       $filler_name = filter_input(INPUT_POST, 'filler_name');
       $contact_info = filter_input(INPUT_POST, 'contact_info');
-       insertRecipientInfo($recipient_firstname,$recipient_lastname,$hand_measurement,$filler_name,$contact_info);
+      insertRecipientInfo($recipient_firstname,$recipient_lastname,$hand_measurement,$filler_name,$contact_info);
+      updateBuildRequest($_SESSION['user_id'], 1);
+      $_SESSION['build_request'] = 1;
      $action = '';
-     header('Location: .?action=show_dashboard');
+     header('Location: .?action=show_buildstatus');
      //include('stories.php');
    } else if ($action == 'logout'){
    		$_SESSION = array();
