@@ -6,26 +6,26 @@ CREATE DATABASE hhp;
 USE hhp;
 
 DROP TABLE IF EXISTS Accounts;
-CREATE TABLE Accounts 
+CREATE TABLE Accounts
 (
 user_id     int auto_increment,
-user_name   varchar(155)not null,   
-password    varchar(35) not null,   
-last_name  varchar(35) not null,   
+user_name   varchar(155)not null,
+password    varchar(35) not null,
+last_name  varchar(35) not null,
 first_name   varchar(35) not null,
-user_sname  varchar(50),  
-email       varchar(35) not null,   
-address     varchar(155),   
-age     	int not null,   
-user_type   varchar(35), 
+user_sname  varchar(50),
+email       varchar(35) not null,
+address     varchar(155),
+age     	int not null,
+user_type   varchar(35),
 build_request boolean not null default 0,
 CONSTRAINT PK_Person PRIMARY KEY (user_id,user_name)
 );
 
 
 INSERT INTO Accounts VALUES
-(1, 'SCindy','hhp','Smith','Cindy', 'Cindy07','cindy@uncc.edu', '1234, address comes here',21,'user', 0), 
-(2, 'JElmer','hhp','Jones','Elmer', 'Elmar17','jones@uncc.edu', '1234, address comes here',7,'user', 1), 
+(1, 'SCindy','hhp','Smith','Cindy', 'Cindy07','cindy@uncc.edu', '1234, address comes here',21,'user', 0),
+(2, 'JElmer','hhp','Jones','Elmer', 'Elmar17','jones@uncc.edu', '1234, address comes here',7,'user', 1),
 (3, 'SRalph','hhp','Simonian','Ralph', ' ','ralph@uncc.edu', '1234, address comes here',14,'user', 0),
 (4, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'builder', 0),
 (5, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'builder', 0),
@@ -66,7 +66,7 @@ CREATE TABLE Stories
   CONSTRAINT FK_Story FOREIGN KEY (user_id) REFERENCES Accounts(user_id)
 );
 
-INSERT INTO Stories VALUES 
+INSERT INTO Stories VALUES
 (1,"Hamed's Genium story", 3, "Living in a big city, Hamed spends a lot of time walking and being outdoors. He depends on the Genium prosthetic leg to help him stay active with exercise and keep up with his friends and his career. As a prosthetist, Hamed knows the importance of a high functioning prosthesis like the Genium prosthetic leg.", '',now(),2),
 (2,"Josh's DynamicArm story", 2, "Josh's drive and passion are reflected in every area of his life. Whether he is knotting his tie in preparation for handling a legal case or loosening up for a 3-point shot from the arc, he uses his DynamicArm to the fullest.", '',now(),5),
 (3,"Andrew and the X3 waterproof prosthetic leg", 1, "Lt. Col. (Ret.) Andrew Lourake was the first Air Force pilot with an above-knee amputation to return to active duty. He did it on a C-Leg, and has since moved on to the X3, Ottobock's remarkable waterproof microprocessor knee. In addition to jetting around lakes, he takes to the sky and works at the Veterans Air Command (VAC), an amazing organization that provides free air transportation to post 9/11 combat wounded and their families for medical and other compassionate purposes through a network of volunteer aircraft owners and pilots.", '',now(), 4)
@@ -83,7 +83,7 @@ CREATE TABLE Mentor
   CONSTRAINT FK_Mentor FOREIGN KEY (user_id) REFERENCES Accounts(user_id)
   );
 
-INSERT INTO Mentor VALUES 
+INSERT INTO Mentor VALUES
 (1, 1, 2, 'mentor'),
 (2, 1, 2, 'mentee')
 ;
@@ -103,7 +103,7 @@ CREATE TABLE Builder_Status
   CONSTRAINT FK_Recipient FOREIGN KEY (recipient_user_id) REFERENCES Accounts(user_id)
 );
 
-INSERT INTO Builder_Status(builder_user_id, recipient_user_id, builder_name, status_update, status_desc, date_posted) VALUES 
+INSERT INTO Builder_Status(builder_user_id, recipient_user_id, builder_name, status_update, status_desc, date_posted) VALUES
 (4, 2,'Steven Smith','','Hand is in the designing process', now()),
 (4, 2,'Steven Smith','','Motor and other accessories ordered', now()),
 (4, 2,'Steven Smith','','Device building is started', now())
@@ -123,7 +123,7 @@ CREATE TABLE Recipient_Info
   CONSTRAINT FK_RecipientInfo FOREIGN KEY (recipient_id) REFERENCES Accounts(user_id)
 );
 
-INSERT INTO Recipient_Info(recipient_id,recipient_firstname, recipient_lastname, hand_measurement, filler_name , contact_info, date_posted) VALUES 
+INSERT INTO Recipient_Info(recipient_id,recipient_firstname, recipient_lastname, hand_measurement, filler_name , contact_info, date_posted) VALUES
 (2,'Elmer','Jones','Hand measurements are provided', 'Robert Jones', 9802586459, now())
 ;
 select * from Recipient_Info;
@@ -136,8 +136,8 @@ CREATE TABLE Builders
   description varchar(500) not null,
   CONSTRAINT FK_Mentor FOREIGN KEY (user_id) REFERENCES Accounts(user_id)
   );
-  
-INSERT INTO Builders VALUES 
+
+INSERT INTO Builders VALUES
 (4, 'Im a father of three with a home workshop with two 3D printers.'),
 (5, 'I work with the local library to do 3D printing for different projects.'),
 (6, 'I am a builder for the Helping Hand Project at UNCC and use the campus printers to build devices.')
