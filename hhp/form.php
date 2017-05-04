@@ -66,7 +66,7 @@ if (session_status() == PHP_SESSION_NONE) {
   }
   </script>
 
- 
+
 
 
   <div class="row" style="width:100%">
@@ -94,14 +94,14 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
         <div class="input-field">
-          <input placeholder="Username" name="user_name" id="username" type="text" class="validate">
-          <label for="username"  required>Username</label>
+          <input placeholder="Username" name="user_name" id="username" type="text" class="validate" required>
+          <label for="username">Username</label>
         </div>
 
 
         <div class="input-field">
-          <input placeholder="Password" name="password" id="password" type="password" class="validate">
-          <label for="password"  required>Password</label>
+          <input placeholder="Password" name="password" id="password" type="password" class="validate" required>
+          <label for="password">Password</label>
         </div>
 
 
@@ -111,19 +111,19 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
 
         <div class="input-field">
-          <input placeholder="Email" name="email" id="email" type="email" class="validate">
-          <label for="email"  required>Email</label>
+          <input placeholder="Email" name="email" id="email" type="email" class="validate" required>
+          <label for="email">Email</label>
         </div>
 
         <div class="input-field">
-          <input placeholder="Address" name="address" id="address" type="text" class="validate">
+          <input placeholder="Address" name="address" id="address" type="text" class="validate" required>
           <label for="address">Address</label>
         </div>
 
 
         <div class="input-field">
-          <input placeholder="Age" name="age" id="age" type="number" class="validate">
-          <label for="last_name"  required>Age</label>
+          <input placeholder="Age" name="age" id="age" type="number" class="validate" required>
+          <label for="last_name">Age</label>
         </div>
 
         <div class="input-field">

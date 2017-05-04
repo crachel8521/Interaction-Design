@@ -25,9 +25,11 @@ CONSTRAINT PK_Person PRIMARY KEY (user_id,user_name)
 
 INSERT INTO Accounts VALUES
 (1, 'SCindy','hhp','Smith','Cindy', 'Cindy07','cindy@uncc.edu', '1234, address comes here',21,'user', 0), 
-(2, 'JElmer','hhp','Jones','Elmer', 'Elmar17','jones@uncc.edu', '1234, address comes here',7,'user', 0), 
+(2, 'JElmer','hhp','Jones','Elmer', 'Elmar17','jones@uncc.edu', '1234, address comes here',7,'user', 1), 
 (3, 'SRalph','hhp','Simonian','Ralph', ' ','ralph@uncc.edu', '1234, address comes here',14,'user', 0),
-(4, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'builder', 0)
+(4, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'builder', 0),
+(5, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'builder', 0),
+(6, 'RAmanda','hhp','Riley','Amanda', 'Amanda15','amanda@hhp.com', '1234, address comes here',23,'builder', 0)
 ;
 
 DROP TABLE IF EXISTS Events;
@@ -126,3 +128,17 @@ INSERT INTO Recipient_Info(recipient_id,recipient_firstname, recipient_lastname,
 ;
 select * from Recipient_Info;
 delete from Recipient_Info where recipient_id=2;
+
+DROP TABLE IF EXISTS Mentor;
+CREATE TABLE Builders
+(
+  user_id int not null,
+  description varchar(500) not null,
+  CONSTRAINT FK_Mentor FOREIGN KEY (user_id) REFERENCES Accounts(user_id)
+  );
+  
+INSERT INTO Builders VALUES 
+(4, 'Im a father of three with a home workshop with two 3D printers.'),
+(5, 'I work with the local library to do 3D printing for different projects.'),
+(6, 'I am a builder for the Helping Hand Project at UNCC and use the campus printers to build devices.')
+;

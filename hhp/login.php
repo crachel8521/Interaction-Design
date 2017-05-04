@@ -24,20 +24,18 @@ if (session_status() == PHP_SESSION_NONE) {
 ?>
 
         <input type="hidden" name="action" value="login_user" />
-        <!-- Email form -->
-        <div class="form-group">
-          <input type="text" class="form-control" name="user_name" id="user_name" placeholder="User Name" />
+        <div class="input-field">
+          <input placeholder="Username" name="user_name" id="username" type="text" class="validate" required>
+          <label for="username">Username</label>
         </div>
-        <!-- End email form -->
+        <div class="input-field">
+          <input placeholder="Password" name="password2" id="password2" type="password" class="validate"  required>
+          <label for="password">Confirm Password</label>
+        </div>
 
-        <!-- Password form -->
-        <div class="form-group">
-          <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
-        </div>
-        <!-- End password form -->
 
         <p>
-          <a href="#">
+          <a class="blue-text" href="#">
             Forgot password?
           </a>
         </p>
@@ -45,14 +43,14 @@ if (session_status() == PHP_SESSION_NONE) {
         <!-- Submit button -->
         <p>
           <!-- <button type="submit" class="btn cyan darken-2"> -->
-          <button type="submit" value="submit" class="btn cyan darken-2">
+          <button type="submit" value="submit" class="btn blue lighten-1">
               Submit
             </button>
           <!-- </button> -->
         </p>
         <!-- End submit button -->
         <p>
-          Don't have Account? <a href="#">Sign Up</a>
+          Don't have Account? <a class="blue-text" href="#">Sign Up</a>
         </p>
       </form>
     </div>
