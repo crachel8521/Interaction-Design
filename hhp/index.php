@@ -37,6 +37,10 @@ if (session_status() == PHP_SESSION_NONE) {
      include('buildstatus.php');
    } else if ($action == 'show_builders'){
      include('builders.php');
+   } else if ($action == 'show_mentorship'){
+     include('mentorship.php');
+   } else if ($action == 'show_howto'){
+     include('howto.php');
    } else if ($action == 'login_user') {
      $user_name = filter_input(INPUT_POST, 'user_name');
      $password = filter_input(INPUT_POST, 'password');

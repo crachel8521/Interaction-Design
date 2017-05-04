@@ -28,6 +28,13 @@
   <li><a class="dropdown-button black-text text-darken-2" href=".?action=show_stories">Stories</a></li>
   <li><a class="dropdown-button black-text text-darken-2" href=".?action=show_chat">Chat</a></li>
 </ul>
+<ul id="dropdown3" class="dropdown-content">
+<li><a class="dropdown-button black-text text-darken-2" href=".?action=show_mentorship">Mentorship</a></li>
+<li><a class="dropdown-button black-text text-darken-2" href=".?action=show_howto">How To</a></li>
+<li><a class="dropdown-button black-text text-darken-2" href="http://www.helpinghandproject.org" target="_blank">The Helping Hand Project</a></li>
+<li><a class="dropdown-button black-text text-darken-2" href="http://www.enablingthefuture.org" target="_blank">Enable</a></li>
+
+</ul>
 <nav class="z-depth-3 grey lighten-2">
   <div class="container">
   <div class="nav-wrapper">
@@ -43,6 +50,7 @@
       <?php } else { ?>
         <li><a class="dropdown-button black-text text-darken-2" href=".?action=show_buildstatus">Build Status</a></li>
         <?php } ?>
+      <li><a class="dropdown-button black-text text-darken-2" href="#!" data-activates="dropdown3">Resources<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a class="dropdown-button black-text text-darken-2" href="#!" data-activates="dropdown2">Community<i class="material-icons right">arrow_drop_down</i></a></li>
       <!-- Dropdown Trigger -->
       <li><a class="dropdown-button black-text text-darken-2" href="#!" data-activates="dropdown1"><img class="circle" src="images/selfiesample.jpg"/><i class="material-icons right">arrow_drop_down</i></a></li>
