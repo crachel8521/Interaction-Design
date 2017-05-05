@@ -13,9 +13,38 @@ if (session_status() == PHP_SESSION_NONE) {
   <div class="column"></div>
 <br><br>
 
-<a class="waves-effect waves-light btn-large blue lighten-1" style="align-self: center;" href=".?action=show_storiesform">Share Your Experience</a>
 
 <br>
+<br>
+<div class="row">
+    <div class="input-field col s4 offset-s4">
+      <input value="Search" id="Search" type="text" class="validate">
+      <label class="active" for="first_name2">Search</label>
+    </div>
+    <div class="col s3 offset-s1">
+    <a class="waves-effect waves-light btn-large blue lighten-1" style="align-self: center;" href=".?action=show_storiesform">Share Your Experience</a>
+</div>
+  </div>
+<div class="row">
+  <div class="col s4 offset-s4">
+<div class="chip">
+    Tag
+    <i class="close material-icons">close</i>
+  </div>
+  <div class="chip">
+    Tag
+    <i class="close material-icons">close</i>
+  </div>
+  <div class="chip">
+    Tag
+    <i class="close material-icons">close</i>
+  </div>
+  <div class="chip">
+    Tag
+    <i class="close material-icons">close</i>
+  </div>
+</div>
+</div>
 
 
 <?php foreach($stories as $story) : ?>
