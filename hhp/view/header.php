@@ -25,7 +25,6 @@
 </ul>
   <ul id="dropdown2" class="dropdown-content">
   <li><a class="dropdown-button black-text text-darken-2" href=".?action=show_events">Events</a></li>
-  <li><a class="dropdown-button black-text text-darken-2" href=".?action=show_stories">Stories</a></li>
   <li><a class="dropdown-button black-text text-darken-2" href=".?action=show_chat">Chat</a></li>
 </ul>
 <ul id="dropdown3" class="dropdown-content">
